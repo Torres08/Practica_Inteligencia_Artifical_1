@@ -30,6 +30,37 @@ Action ComportamientoJugador::think(Sensores sensores){
 	cout << "Vida: " << sensores.vida << endl;
 	cout << endl;
 
+	// Metodo think
+	switch(ultimaAccion){
+		case actFORWARD:
+			switch (brujula) {
+				case 0: fil--; break;
+				case 1: col++; break;
+				case 2: fil++; break;
+				case 3: col--; break;
+			}
+		break;
+
+		case actTURN_L:
+			brujula = (brujula+3)%4;
+		break;
+
+		case actTURN_R:
+			brujula = (brujula+1)%4;
+		break;
+	}
+
+	// Decidir la nueva accion
+	if((sensores.terreno[2]=='T' or sensores.terreno[2]=='S') and sensores.superficie[2] =='_'){
+		accion=actFORWARD;
+	} else {
+		accion = actTURN_L;
+	}
+	
+	// Recordar la ultima accion
+	ultimaAccion = accion;
+	return accion;
+
 
 	// Determinar el efecto de la ultima accion enviada
 	return accion;
