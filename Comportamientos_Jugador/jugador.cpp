@@ -52,8 +52,18 @@ Action ComportamientoJugador::think(Sensores sensores){
 		break;
 	}
 
+	if (sensores.terreno[0] == 'G' and !bien_situado){
+		fil = sensores.posF;
+		col = sensores.posC;
+		bien_situado=true;
+	}
+
+	if (bien_situado){
+		mapaResultado[fil][col] = sensores.terreno[0]; 
+	}
+
 	// Decidir la nueva accion
-	if((sensores.terreno[2]=='T' or sensores.terreno[2]=='S') and sensores.superficie[2] =='_'){
+	if((sensores.terreno[2]=='T' or sensores.terreno[2]=='S' or sensores.terreno[2]== 'G') and sensores.superficie[2] =='_'){
 		accion=actFORWARD;
 	} else if(!girar_derecha) {
 		accion = actTURN_L;
