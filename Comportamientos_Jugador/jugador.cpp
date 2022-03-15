@@ -43,18 +43,22 @@ Action ComportamientoJugador::think(Sensores sensores){
 
 		case actTURN_L:
 			brujula = (brujula+3)%4;
+			girar_derecha = (rand()%2==0);
 		break;
 
 		case actTURN_R:
 			brujula = (brujula+1)%4;
+			girar_derecha = (rand()%2==0);
 		break;
 	}
 
 	// Decidir la nueva accion
 	if((sensores.terreno[2]=='T' or sensores.terreno[2]=='S') and sensores.superficie[2] =='_'){
 		accion=actFORWARD;
-	} else {
+	} else if(!girar_derecha) {
 		accion = actTURN_L;
+	} else {
+		accion = actTURN_R;
 	}
 	
 	// Recordar la ultima accion

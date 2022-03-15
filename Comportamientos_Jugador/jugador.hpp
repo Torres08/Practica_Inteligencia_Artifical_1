@@ -13,6 +13,7 @@ class ComportamientoJugador : public Comportamiento{
       fil=col=99;
       brujula=0;
       ultimaAccion= actIDLE;
+      girar_derecha=false;
     }
 
     ComportamientoJugador(const ComportamientoJugador & comport) : Comportamiento(comport){}
@@ -26,6 +27,7 @@ class ComportamientoJugador : public Comportamiento{
   // Declarar aquí las variables de estado
   int fil,col,brujula;
   Action ultimaAccion;
+  bool girar_derecha;
 };
 
 #endif
