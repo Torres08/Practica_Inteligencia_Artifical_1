@@ -58,30 +58,49 @@ Action ComportamientoJugador::think(Sensores sensores) {
 
   case actTURN_L:
     brujula = (brujula + 3) % 4;
-    girar_derecha = (rand() % 2 == 0);
+    //girar_derecha = (rand() % 2 == 0);
     break;
 
   case actTURN_R:
     brujula = (brujula + 1) % 4;
-    girar_derecha = (rand() % 2 == 0);
+    //girar_derecha = (rand() % 2 == 0);
     break;
+  }
+
+   
+
+  if (sensores.terreno[0] == 'G' and !bien_situado) {
+    fil = sensores.posF;
+    col = sensores.posC;
+    bien_situado = true;
   }
 
    if (bien_situado){
    		ActualizarMapa(sensores);
+      //mapaResultado[fil][col]=sensores.terreno[0];
    } 
-
-  //if (sensores.terreno[0] == 'G' and !bien_situado) {
-    fil = sensores.posF;
-    col = sensores.posC;
-    bien_situado = true;
-  //}
-
-   
 
   
 
   // Decidir la nueva accion
+
+  if (Avanzar(sensores)){
+    accion = actFORWARD;
+  } else {
+   accion= Girar(sensores);
+  }
+  
+
+  /*
+    If(Avanzar(sensores)){
+      accion = actFORWARD;
+    else {
+        Giro(sensores);
+    }
+    }
+  */
+
+  /*
   if ((sensores.terreno[2] == 'T' or sensores.terreno[2] == 'S' or
        sensores.terreno[2] == 'G') and
       sensores.superficie[2] == '_') {
@@ -91,6 +110,7 @@ Action ComportamientoJugador::think(Sensores sensores) {
   } else {
     accion = actTURN_R;
   }
+  */
 
   // reconoce la casilla G la azul deja un rastro de lo visto
   // cono de visualización
@@ -130,6 +150,44 @@ bool hayObstaculo(unsigned char casilla) {
 	desde 0 hasta 15 en mapaResultado
 
 */
+
+/*
+  Cuando muera reinicio
+*/
+
+bool ComportamientoJugador::Avanzar(Sensores sensores){
+	return ((sensores.terreno[2] == 'T' or sensores.terreno[2] == 'S' or sensores.terreno[2] == 'G' or sensores.terreno[2] == 'D') && (sensores.superficie[2] == '_'));
+}
+
+/*
+  Cuando muera reinicio
+*/
+void ComportamientoJugador::Reiniciar(){
+  fil = col = 99;
+  ultimaAccion= actIDLE;
+  bien_situado = false;
+  brujula = 0;
+}
+
+/*
+  Quiero añadir una variable de gro aleatorio
+*/
+Action ComportamientoJugador::Girar(Sensores sensores){
+  Action accion;
+
+  if (!girar_derecha){
+    accion = actTURN_L;
+    girar_derecha= (rand()%2 == 0);
+    
+  } else {
+    accion = actTURN_R;
+    girar_derecha= (rand()%2 == 0);
+
+  }
+
+  return accion;
+}
+
 void ComportamientoJugador::ActualizarMapa(Sensores sensores) {
 		mapaResultado[fil][col]=sensores.terreno[0];
 	
