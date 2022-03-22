@@ -30,7 +30,7 @@ class ComportamientoJugador : public Comportamiento{
   int fil,col,brujula;
   Action ultimaAccion;
   bool girar_derecha, bien_situado, bikini, zapatillas;
-  char mapaAux[200][200]; // por si lo necesito
+  //char mapaAux[200][200]; // por si lo necesito
 
   // necesito variable para que gire aleatoriamente, cuando llegue a 0
 

@@ -35,6 +35,8 @@ Action ComportamientoJugador::think(Sensores sensores) {
   cout << "Colisión: " << sensores.colision << endl;
   cout << "Reset: " << sensores.reset << endl;
   cout << "Vida: " << sensores.vida << endl;
+  cout << "Bikini: " << bikini << endl;
+  cout << "zapatillas: " << zapatillas  << endl;
   cout << endl;
 
   // Metodo think
@@ -73,14 +75,14 @@ Action ComportamientoJugador::think(Sensores sensores) {
     fil = sensores.posF;
     col = sensores.posC;
     brujula= sensores.sentido;
-    bien_situado = true;
+    //bien_situado = true;
   //}
 
     
-   //if (bien_situado){
+   if (bien_situado){
    		ActualizarMapa(sensores);
       //mapaResultado[fil][col]=sensores.terreno[0];
-   //} 
+   } 
 
   
 
@@ -92,7 +94,17 @@ Action ComportamientoJugador::think(Sensores sensores) {
    accion= Girar(sensores);
    //brujula= sensores.sentido;
   }
+
+  // compruebo si he pasado por una casilla de bikini o de zapatillas
+
+  if (sensores.terreno[2] == 'K')
+    bikini = true;
+
+  if (sensores.terreno[2] == 'D')
+    zapatillas = true;
+
   
+  bien_situado=true;
 
   /*
     If(Avanzar(sensores)){
@@ -133,6 +145,7 @@ int ComportamientoJugador::interact(Action accion, int valor) { return false; }
 // Mis funciones
 
 // Mientras que no sea un muro o un precipicio paso
+/*
 bool hayObstaculo(unsigned char casilla) {
   if (casilla == 'P' or casilla == 'M') {
     return true;
@@ -140,6 +153,7 @@ bool hayObstaculo(unsigned char casilla) {
     return false;
   }
 }
+*/
 
 
 // Cono, actualizo el mapa
@@ -159,18 +173,24 @@ bool hayObstaculo(unsigned char casilla) {
 */
 
 bool ComportamientoJugador::Avanzar(Sensores sensores){
-	return ((sensores.terreno[2] == 'T' or sensores.terreno[2] == 'S' or sensores.terreno[2] == 'G' or sensores.terreno[2] == 'D') && (sensores.superficie[2] == '_'));
+	
+  bool b1 = (sensores.terreno[2] == 'T' or sensores.terreno[2] == 'S' or sensores.terreno[2] == 'G' or sensores.terreno[2] == 'D' or sensores.terreno[2] == 'K');
+  bool b2 = (sensores.superficie[2] == '_');
+  bool condicion_zapatillas = (sensores.terreno[2] == 'B');
+  bool condicion_bikini = (sensores.terreno[2] == 'A');
+  
+  if (zapatillas)
+    b1 = b1 || condicion_zapatillas;
+
+  if (bikini)
+    b1 = b1 || condicion_bikini;
+
+
+  return b1 && b2;
+  //return ((sensores.terreno[2] == 'T' or sensores.terreno[2] == 'S' or sensores.terreno[2] == 'G' or sensores.terreno[2] == 'D') && (sensores.superficie[2] == '_'));
 }
 
-/*
-  Cuando muera reinicio
-*/
-void ComportamientoJugador::Reiniciar(){
-  fil = col = 99;
-  ultimaAccion= actIDLE;
-  bien_situado = false;
-  brujula = 0;
-}
+
 
 /*
   Quiero añadir una variable de gro aleatorio
