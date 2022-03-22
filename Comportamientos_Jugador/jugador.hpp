@@ -11,7 +11,7 @@ class ComportamientoJugador : public Comportamiento{
       // Constructor de la clase
       // Dar el valor inicial a las variables de estado
       fil=col=99;
-      brujula=0;
+      //brujula=0;
       ultimaAccion= actIDLE;
       girar_derecha=false;
       bien_situado=false;

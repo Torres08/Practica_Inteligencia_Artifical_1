@@ -5,7 +5,7 @@ using namespace std;
 Action ComportamientoJugador::think(Sensores sensores) {
 
   Action accion = actIDLE;
-
+  //brujula= sensores.sentido;
   cout << "Posicion: fila " << sensores.posF << " columna " << sensores.posC
        << " ";
   switch (sensores.sentido) {
@@ -69,16 +69,18 @@ Action ComportamientoJugador::think(Sensores sensores) {
 
    
 
-  if (sensores.terreno[0] == 'G' and !bien_situado) {
+  //if (sensores.terreno[0] == 'G' and !bien_situado) {
     fil = sensores.posF;
     col = sensores.posC;
+    brujula= sensores.sentido;
     bien_situado = true;
-  }
+  //}
 
-   if (bien_situado){
+    
+   //if (bien_situado){
    		ActualizarMapa(sensores);
       //mapaResultado[fil][col]=sensores.terreno[0];
-   } 
+   //} 
 
   
 
@@ -88,6 +90,7 @@ Action ComportamientoJugador::think(Sensores sensores) {
     accion = actFORWARD;
   } else {
    accion= Girar(sensores);
+   //brujula= sensores.sentido;
   }
   
 
