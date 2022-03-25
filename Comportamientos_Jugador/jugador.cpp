@@ -36,7 +36,9 @@ Action ComportamientoJugador::think(Sensores sensores) {
   cout << "Reset: " << sensores.reset << endl;
   cout << "Vida: " << sensores.vida << endl;
   cout << "Bikini: " << bikini << endl;
-  cout << "zapatillas: " << zapatillas  << endl;
+  cout << "Zapatillas: " << zapatillas  << endl;
+  cout << "Recarga: " << recarga << endl;
+  cout << "Nivel: " << nivel << endl;
   cout << endl;
 
   // Metodo think
@@ -69,7 +71,7 @@ Action ComportamientoJugador::think(Sensores sensores) {
     break;
   }
 
-   
+  /* 
 
   //if (sensores.terreno[0] == 'G' and !bien_situado) {
     fil = sensores.posF;
@@ -84,8 +86,6 @@ Action ComportamientoJugador::think(Sensores sensores) {
       //mapaResultado[fil][col]=sensores.terreno[0];
    } 
 
-  
-
   // Decidir la nueva accion
 
   if (Avanzar(sensores)){
@@ -96,15 +96,66 @@ Action ComportamientoJugador::think(Sensores sensores) {
   }
 
   // compruebo si he pasado por una casilla de bikini o de zapatillas
+  // Compruebo casilla especial
 
+  CasillaEspecial(sensores);
+ 
   if (sensores.terreno[2] == 'K')
     bikini = true;
 
   if (sensores.terreno[2] == 'D')
     zapatillas = true;
 
+  if (sensores.terreno[2] == 'X') 
+    recarga = true;
+bien_situado=true;
+  */
   
-  bien_situado=true;
+
+ /*
+  if (Avanzar(sensores)){
+    accion = actFORWARD;
+  } else {
+   accion= Girar(sensores);
+   //brujula= sensores.sentido;
+  }
+ */
+  
+  // dependiendo de la accion hago una cosa u otra
+
+  switch (sensores.nivel) {
+    case 0:
+        accion = Comportamiento_nivel0(sensores, accion);
+        nivel = 0;
+      break;
+    case 1:
+        nivel = 1;
+      break;
+    case 2:
+        nivel = 2;
+      break;
+    case 3:
+        nivel = 3;
+      
+      break;
+    
+    case 4:
+        nivel = 4;
+    break;
+
+    default:
+        accion = Comportamiento_nivel0(sensores, accion);
+        nivel = 0;
+    break;
+    
+    /*
+    default:
+        Comportamiento_nivel0(sensores, accion);
+      break;
+      */
+    }
+
+  
 
   /*
     If(Avanzar(sensores)){
@@ -155,7 +206,6 @@ bool hayObstaculo(unsigned char casilla) {
 }
 */
 
-
 // Cono, actualizo el mapa
 /*
 	norte 0 
@@ -168,10 +218,46 @@ bool hayObstaculo(unsigned char casilla) {
 
 */
 
+// ---------------------------------------------------------------------------------------------------------------------------------------------
 /*
-  Cuando muera reinicio
+  Niveles de Profundidad
 */
 
+// NIVEL 0 ¿Que hago en el nivel 0? 
+Action ComportamientoJugador::Comportamiento_nivel0(Sensores sensores, Action accion){
+
+  
+   fil = sensores.posF;
+   col = sensores.posC;
+   brujula= sensores.sentido;
+   
+   if (bien_situado){
+   		ActualizarMapa(sensores);
+   } 
+
+  // Decidir la nueva accion
+  if (Avanzar(sensores)){
+    accion = actFORWARD;
+
+  } else {
+    accion= Girar(sensores);
+  }
+
+  // Se pone a girar solo
+  /*
+  if (sensores.vida < 2500 && Avanzar(sensores))
+     accion = Girar(sensores);  
+  */
+
+  CasillaEspecial(sensores);
+  return accion;
+}
+
+
+// ---------------------------------------------------------------------------------------------------------------------------------------------
+/*
+  Funciones Auxiliares
+*/
 bool ComportamientoJugador::Avanzar(Sensores sensores){
 	
   bool b1 = (sensores.terreno[2] == 'T' or sensores.terreno[2] == 'S' or sensores.terreno[2] == 'G' or sensores.terreno[2] == 'D' or sensores.terreno[2] == 'K');
@@ -191,24 +277,43 @@ bool ComportamientoJugador::Avanzar(Sensores sensores){
 }
 
 
-
 /*
   Quiero añadir una variable de gro aleatorio
 */
 Action ComportamientoJugador::Girar(Sensores sensores){
   Action accion;
 
+
   if (!girar_derecha){
     accion = actTURN_L;
     girar_derecha= (rand()%2 == 0);
+    //girar_derecha = (rand()%50) + 1;
     
   } else {
     accion = actTURN_R;
     girar_derecha= (rand()%2 == 0);
+    //girar_derecha = (rand()%50) + 1;
 
   }
 
   return accion;
+}
+
+void ComportamientoJugador::Recargar (Sensores sensores){
+
+}
+
+void ComportamientoJugador::CasillaEspecial(Sensores sensores){
+  if (sensores.terreno[2] == 'K')
+    bikini = true;
+
+  if (sensores.terreno[2] == 'D')
+    zapatillas = true;
+
+  if (sensores.terreno[2] == 'X') 
+    recarga = true;
+
+  bien_situado = true;
 }
 
 void ComportamientoJugador::ActualizarMapa(Sensores sensores) {
@@ -301,3 +406,5 @@ void ComportamientoJugador::ActualizarMapa(Sensores sensores) {
   
 
 }
+
+

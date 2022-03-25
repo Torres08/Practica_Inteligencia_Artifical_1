@@ -15,7 +15,9 @@ class ComportamientoJugador : public Comportamiento{
       ultimaAccion= actIDLE;
       girar_derecha=false;
       bien_situado=false;
-      bikini = zapatillas = false;
+      bikini = zapatillas = recarga = false;
+
+      nivel = 100;
     }
 
     ComportamientoJugador(const ComportamientoJugador & comport) : Comportamiento(comport){}
@@ -27,18 +29,23 @@ class ComportamientoJugador : public Comportamiento{
   private:
   
   // Declarar aquí las variables de estado
-  int fil,col,brujula;
+  int fil,col,brujula, nivel;
   Action ultimaAccion;
-  bool girar_derecha, bien_situado, bikini, zapatillas;
+  bool girar_derecha, bien_situado, bikini, zapatillas, recarga;
   //char mapaAux[200][200]; // por si lo necesito
 
   // necesito variable para que gire aleatoriamente, cuando llegue a 0
 
   // funciones privadas 
   void ActualizarMapa(Sensores sensores);
-  void Reiniciar();
   bool Avanzar(Sensores sensores);
   Action Girar(Sensores sensores);
+  void Recargar(Sensores sensores);
+  void CasillaEspecial(Sensores sensores);
+
+  
+
+  Action Comportamiento_nivel0(Sensores sensores, Action accion);
 };
 
 #endif
