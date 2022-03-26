@@ -130,6 +130,8 @@ bien_situado=true;
       break;
     case 1:
         nivel = 1;
+        sensores_nivel1=false;
+        accion = Comportamiento_nivel1(sensores, accion);
       break;
     case 2:
         nivel = 2;
@@ -219,11 +221,16 @@ bool hayObstaculo(unsigned char casilla) {
 */
 
 // ---------------------------------------------------------------------------------------------------------------------------------------------
+
 /*
   Niveles de Profundidad
 */
-
-// NIVEL 0 ¿Que hago en el nivel 0? 
+ 
+/*
+  Nivel 0: El sistema sensorial funciona correctamente y en todo
+  momento el agente conoce su posicion y su orientacion a traves 
+  de los sensores correspondientes
+*/
 Action ComportamientoJugador::Comportamiento_nivel0(Sensores sensores, Action accion){
 
   
@@ -243,15 +250,89 @@ Action ComportamientoJugador::Comportamiento_nivel0(Sensores sensores, Action ac
     accion= Girar(sensores);
   }
 
-  // Se pone a girar solo
-  /*
-  if (sensores.vida < 2500 && Avanzar(sensores))
-     accion = Girar(sensores);  
-  */
 
   CasillaEspecial(sensores);
   return accion;
+  
+
 }
+
+/*
+  Nivel 1: 
+  -no se conoce la posicion del agente, aunque si su orientacion
+  -entonces posF y posC devuelven -1
+  -Estos sensores devuelven valor correcto de fila y columna cuando el agente 
+  este en una casilla G "Posicionamiento"
+  mapa no funciona bien
+*/
+
+Action ComportamientoJugador::Comportamiento_nivel1(Sensores sensores, Action accion){
+  
+   brujula= sensores.sentido;
+   
+   /*
+   if (bien_situado){
+   		ActualizarMapa(sensores);
+   } 
+   */
+  
+  // volcado del mapa
+  if (sensores.terreno[0] == 'G'){
+
+    fil = sensores.posF; // sensores devuelven -1
+    col = sensores.posC;
+    ActualizarMapa(sensores);
+
+    for(int i = 0; i < 100; ++i){
+			for(int j = 0; j < 100; ++j){
+				if(mapaResultado[i][j]=='?'){
+					mapaResultado[i][j] = mapaAux[i][j];
+				}
+			}
+		}
+
+    bien_situado = true;
+    
+  }
+
+  // Decidir la nueva accion
+  if (Avanzar(sensores)){
+    accion = actFORWARD;
+
+  } else {
+    accion= Girar(sensores);
+  }
+
+  bien_situado = true;
+  CasillaEspecial(sensores);
+  return accion;
+}
+
+
+
+/*
+  Nivel 2:Ahora tmp se conoce la orientacion
+  
+    -Sabemos que se empieza en el norte
+    buscamos una casilla de posicionamiento para situarse correctamente
+    en el mapa
+    -sensor de orientacion siempre devuelve norte
+    - usamos el nuestro propio
+*/
+
+/*
+  Nivel 3:
+    - Ahora aparecen aldeanos en la simulacion y obstaculizan 
+    al agente
+*/
+
+/*
+  Nivel 4:
+    - Aparecen lobos
+    - colision con los lobos provoca reinicio del mapa
+    es decir, aparece en una nueva casilla del mapa desconocida
+    con orientacion al norte y si zapatillas ni bikini.
+*/
 
 
 // ---------------------------------------------------------------------------------------------------------------------------------------------
@@ -313,12 +394,20 @@ void ComportamientoJugador::CasillaEspecial(Sensores sensores){
   if (sensores.terreno[2] == 'X') 
     recarga = true;
 
-  bien_situado = true;
+  
+
+  //bien_situado = true;
 }
 
+
 void ComportamientoJugador::ActualizarMapa(Sensores sensores) {
-		mapaResultado[fil][col]=sensores.terreno[0];
-	
+
+
+  if (sensores_nivel1){
+
+  mapaResultado[fil][col] = sensores.terreno[0];
+  
+
 		switch (brujula) {
 		case 0:
 			mapaResultado[fil-1][col-1] = sensores.terreno[1];
@@ -401,8 +490,94 @@ void ComportamientoJugador::ActualizarMapa(Sensores sensores) {
 		break;
 
 		}
+
+  } else { // si no funcionan los sonsores lo guardo en un mapa auxiliar que dibuja cuando estoy en la casilla K
+  cout << "Imprimo mapaAux" << endl;
+  switch (brujula) {
+		case 0:
+			mapaAux[fil-1][col-1] = sensores.terreno[1];
+			mapaAux[fil-1][col] = sensores.terreno[2];
+			mapaAux[fil-1][col+1] = sensores.terreno[3];
+
+			mapaAux[fil-2][col-2] = sensores.terreno[4];
+			mapaAux[fil-2][col-1] = sensores.terreno[5];
+			mapaAux[fil-2][col] = sensores.terreno[6];
+			mapaAux[fil-2][col+1] = sensores.terreno[7];
+			mapaAux[fil-2][col+2] = sensores.terreno[8];
+
+			mapaAux[fil-3][col-3] = sensores.terreno[9];
+			mapaAux[fil-3][col-2] = sensores.terreno[10];
+			mapaAux[fil-3][col-1] = sensores.terreno[11];
+			mapaAux[fil-3][col] = sensores.terreno[12];
+			mapaAux[fil-3][col+1] = sensores.terreno[13];
+			mapaAux[fil-3][col+2] = sensores.terreno[14];
+			mapaAux[fil-3][col+3] = sensores.terreno[15];
+		break;
+
+		case 1:
+			mapaAux[fil-1][col+1] = sensores.terreno[1];
+			mapaAux[fil][col+1] = sensores.terreno[2];
+			mapaAux[fil+1][col+1] = sensores.terreno[3];
+
+			mapaAux[fil-2][col+2] = sensores.terreno[4];
+			mapaAux[fil-1][col+2] = sensores.terreno[5];
+			mapaAux[fil][col+2] = sensores.terreno[6];
+			mapaAux[fil+1][col+2] = sensores.terreno[7];
+			mapaAux[fil+2][col+2] = sensores.terreno[8];
+
+			mapaAux[fil-3][col+3] = sensores.terreno[9];
+			mapaAux[fil-2][col+3] = sensores.terreno[10];
+			mapaAux[fil-1][col+3] = sensores.terreno[11];
+			mapaAux[fil][col+3] = sensores.terreno[12];
+			mapaAux[fil+1][col+3] = sensores.terreno[13];
+			mapaAux[fil+2][col+3] = sensores.terreno[14];
+			mapaAux[fil+3][col+3] = sensores.terreno[15];
+		break;
+		
+		case 2:
+			mapaAux[fil+1][col+1] = sensores.terreno[1];
+			mapaAux[fil+1][col] = sensores.terreno[2];
+			mapaAux[fil+1][col-1] = sensores.terreno[3];
+
+			mapaAux[fil+2][col+2] = sensores.terreno[4];
+			mapaAux[fil+2][col+1] = sensores.terreno[5];
+			mapaAux[fil+2][col] = sensores.terreno[6];
+			mapaAux[fil+2][col-1] = sensores.terreno[7];
+			mapaAux[fil+2][col-2] = sensores.terreno[8];
+
+			mapaAux[fil+3][col+3] = sensores.terreno[9];
+			mapaAux[fil+3][col+2] = sensores.terreno[10];
+			mapaAux[fil+3][col+1] = sensores.terreno[11];
+			mapaAux[fil+3][col] = sensores.terreno[12];
+			mapaAux[fil+3][col-1] = sensores.terreno[13];
+			mapaAux[fil+3][col-2] = sensores.terreno[14];
+			mapaAux[fil+3][col-3] = sensores.terreno[15];
+		break;
+		
+		case 3:
+			mapaAux[fil+1][col-1] = sensores.terreno[1];
+			mapaAux[fil][col-1] = sensores.terreno[2];
+			mapaAux[fil-1][col-1] = sensores.terreno[3];
+
+			mapaAux[fil+2][col-2] = sensores.terreno[4];
+			mapaAux[fil+1][col-2] = sensores.terreno[5];
+			mapaAux[fil][col-2] = sensores.terreno[6];
+			mapaAux[fil-1][col-2] = sensores.terreno[7];
+			mapaAux[fil-2][col-2] = sensores.terreno[8];
+
+			mapaAux[fil+3][col-3] = sensores.terreno[9];
+			mapaAux[fil+2][col-3] = sensores.terreno[10];
+			mapaAux[fil+1][col-3] = sensores.terreno[11];
+			mapaAux[fil][col-3] = sensores.terreno[12];
+			mapaAux[fil-1][col-3] = sensores.terreno[13];
+			mapaAux[fil-2][col-3] = sensores.terreno[14];
+			mapaAux[fil-3][col-3] = sensores.terreno[15];
+		break;
+
+		}
+  }
 	
-	
+	  
   
 
 }

@@ -17,6 +17,7 @@ class ComportamientoJugador : public Comportamiento{
       bien_situado=false;
       bikini = zapatillas = recarga = false;
 
+      sensores_nivel1 = true;
       nivel = 100;
     }
 
@@ -32,7 +33,8 @@ class ComportamientoJugador : public Comportamiento{
   int fil,col,brujula, nivel;
   Action ultimaAccion;
   bool girar_derecha, bien_situado, bikini, zapatillas, recarga;
-  //char mapaAux[200][200]; // por si lo necesito
+  char mapaAux[100][100]; // por si lo necesito
+  bool sensores_nivel1;
 
   // necesito variable para que gire aleatoriamente, cuando llegue a 0
 
@@ -43,9 +45,10 @@ class ComportamientoJugador : public Comportamiento{
   void Recargar(Sensores sensores);
   void CasillaEspecial(Sensores sensores);
 
-  
+  char Mapa(Sensores sensores);
 
   Action Comportamiento_nivel0(Sensores sensores, Action accion);
+  Action Comportamiento_nivel1(Sensores sensores, Action accion);
 };
 
 #endif
