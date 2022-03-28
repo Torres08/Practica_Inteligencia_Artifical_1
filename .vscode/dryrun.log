@@ -25,14 +25,13 @@ make[2]: Entering directory '/home/icaro/Escritorio/2º Cuatri/IA/practica1'
 /usr/bin/c++  -I"/home/icaro/Escritorio/2º Cuatri/IA/practica1/include" -fopenmp -pthread -std=c++11 -MD -MT CMakeFiles/obj3DLib.dir/src/obj3dlib/dodecaedro3d.cc.o -MF CMakeFiles/obj3DLib.dir/src/obj3dlib/dodecaedro3d.cc.o.d -o CMakeFiles/obj3DLib.dir/src/obj3dlib/dodecaedro3d.cc.o -c "/home/icaro/Escritorio/2º Cuatri/IA/practica1/src/obj3dlib/dodecaedro3d.cc"
 /usr/bin/cmake -E cmake_echo_color --switch= --green --progress-dir="/home/icaro/Escritorio/2º Cuatri/IA/practica1/CMakeFiles" --progress-num=66 "Building CXX object CMakeFiles/obj3DLib.dir/src/obj3dlib/esfera3d.cc.o"
 /usr/bin/c++  -I"/home/icaro/Escritorio/2º Cuatri/IA/practica1/include" -fopenmp -pthread -std=c++11 -MD -MT CMakeFiles/obj3DLib.dir/src/obj3dlib/esfera3d.cc.o -MF CMakeFiles/obj3DLib.dir/src/obj3dlib/esfera3d.cc.o.d -o CMakeFiles/obj3DLib.dir/src/obj3dlib/esfera3d.cc.o -c "/home/icaro/Escritorio/2º Cuatri/IA/practica1/src/obj3dlib/esfera3d.cc"
- 
 /usr/bin/cmake -E cmake_echo_color --switch= --green --progress-dir="/home/icaro/Escritorio/2º Cuatri/IA/practica1/CMakeFiles" --progress-num=67 "Building CXX object CMakeFiles/obj3DLib.dir/src/obj3dlib/file_ply_stl.cc.o"
 /usr/bin/c++  -I"/home/icaro/Escritorio/2º Cuatri/IA/practica1/include" -fopenmp -pthread -std=c++11 -MD -MT CMakeFiles/obj3DLib.dir/src/obj3dlib/file_ply_stl.cc.o -MF CMakeFiles/obj3DLib.dir/src/obj3dlib/file_ply_stl.cc.o.d -o CMakeFiles/obj3DLib.dir/src/obj3dlib/file_ply_stl.cc.o -c "/home/icaro/Escritorio/2º Cuatri/IA/practica1/src/obj3dlib/file_ply_stl.cc"
+ 
 /usr/bin/cmake -E cmake_echo_color --switch= --green --progress-dir="/home/icaro/Escritorio/2º Cuatri/IA/practica1/CMakeFiles" --progress-num=68 "Building CXX object CMakeFiles/obj3DLib.dir/src/obj3dlib/icosaedro3d.cc.o"
 /usr/bin/c++  -I"/home/icaro/Escritorio/2º Cuatri/IA/practica1/include" -fopenmp -pthread -std=c++11 -MD -MT CMakeFiles/obj3DLib.dir/src/obj3dlib/icosaedro3d.cc.o -MF CMakeFiles/obj3DLib.dir/src/obj3dlib/icosaedro3d.cc.o.d -o CMakeFiles/obj3DLib.dir/src/obj3dlib/icosaedro3d.cc.o -c "/home/icaro/Escritorio/2º Cuatri/IA/practica1/src/obj3dlib/icosaedro3d.cc"
 /usr/bin/cmake -E cmake_echo_color --switch= --green --progress-dir="/home/icaro/Escritorio/2º Cuatri/IA/practica1/CMakeFiles" --progress-num=69 "Building CXX object CMakeFiles/obj3DLib.dir/src/obj3dlib/jpeg_reader/jpg_imagen.cpp.o"
 /usr/bin/c++  -I"/home/icaro/Escritorio/2º Cuatri/IA/practica1/include" -fopenmp -pthread -std=c++11 -MD -MT CMakeFiles/obj3DLib.dir/src/obj3dlib/jpeg_reader/jpg_imagen.cpp.o -MF CMakeFiles/obj3DLib.dir/src/obj3dlib/jpeg_reader/jpg_imagen.cpp.o.d -o CMakeFiles/obj3DLib.dir/src/obj3dlib/jpeg_reader/jpg_imagen.cpp.o -c "/home/icaro/Escritorio/2º Cuatri/IA/practica1/src/obj3dlib/jpeg_reader/jpg_imagen.cpp"
- 
 /usr/bin/cmake -E cmake_echo_color --switch= --green --progress-dir="/home/icaro/Escritorio/2º Cuatri/IA/practica1/CMakeFiles" --progress-num=70 "Building CXX object CMakeFiles/obj3DLib.dir/src/obj3dlib/jpeg_reader/jpg_memsrc.cpp.o"
 /usr/bin/c++  -I"/home/icaro/Escritorio/2º Cuatri/IA/practica1/include" -fopenmp -pthread -std=c++11 -MD -MT CMakeFiles/obj3DLib.dir/src/obj3dlib/jpeg_reader/jpg_memsrc.cpp.o -MF CMakeFiles/obj3DLib.dir/src/obj3dlib/jpeg_reader/jpg_memsrc.cpp.o.d -o CMakeFiles/obj3DLib.dir/src/obj3dlib/jpeg_reader/jpg_memsrc.cpp.o -c "/home/icaro/Escritorio/2º Cuatri/IA/practica1/src/obj3dlib/jpeg_reader/jpg_memsrc.cpp"
  
@@ -146,56 +145,42 @@ make -s -f CMakeFiles/modelosBelkanLib.dir/build.make CMakeFiles/modelosBelkanLi
 make[2]: Entering directory '/home/icaro/Escritorio/2º Cuatri/IA/practica1'
 cd "/home/icaro/Escritorio/2º Cuatri/IA/practica1" && /usr/bin/cmake -E cmake_depends "Unix Makefiles" "/home/icaro/Escritorio/2º Cuatri/IA/practica1" "/home/icaro/Escritorio/2º Cuatri/IA/practica1" "/home/icaro/Escritorio/2º Cuatri/IA/practica1" "/home/icaro/Escritorio/2º Cuatri/IA/practica1" "/home/icaro/Escritorio/2º Cuatri/IA/practica1/CMakeFiles/modelosBelkanLib.dir/DependInfo.cmake" --color=
 make[2]: Leaving directory '/home/icaro/Escritorio/2º Cuatri/IA/practica1'
- 
 make -s -f CMakeFiles/modelosBelkanLib.dir/build.make CMakeFiles/modelosBelkanLib.dir/build
- 
 make[2]: Entering directory '/home/icaro/Escritorio/2º Cuatri/IA/practica1'
 /usr/bin/cmake -E cmake_echo_color --switch= --green --progress-dir="/home/icaro/Escritorio/2º Cuatri/IA/practica1/CMakeFiles" --progress-num=40 "Building CXX object CMakeFiles/modelosBelkanLib.dir/src/modelos/aldeano/aldeano.cpp.o"
 /usr/bin/c++  -I"/home/icaro/Escritorio/2º Cuatri/IA/practica1/include" -fopenmp -pthread -std=c++11 -MD -MT CMakeFiles/modelosBelkanLib.dir/src/modelos/aldeano/aldeano.cpp.o -MF CMakeFiles/modelosBelkanLib.dir/src/modelos/aldeano/aldeano.cpp.o.d -o CMakeFiles/modelosBelkanLib.dir/src/modelos/aldeano/aldeano.cpp.o -c "/home/icaro/Escritorio/2º Cuatri/IA/practica1/src/modelos/aldeano/aldeano.cpp"
- 
 /usr/bin/cmake -E cmake_echo_color --switch= --green --progress-dir="/home/icaro/Escritorio/2º Cuatri/IA/practica1/CMakeFiles" --progress-num=41 "Building CXX object CMakeFiles/modelosBelkanLib.dir/src/modelos/aldeano/brazo.cpp.o"
 /usr/bin/c++  -I"/home/icaro/Escritorio/2º Cuatri/IA/practica1/include" -fopenmp -pthread -std=c++11 -MD -MT CMakeFiles/modelosBelkanLib.dir/src/modelos/aldeano/brazo.cpp.o -MF CMakeFiles/modelosBelkanLib.dir/src/modelos/aldeano/brazo.cpp.o.d -o CMakeFiles/modelosBelkanLib.dir/src/modelos/aldeano/brazo.cpp.o -c "/home/icaro/Escritorio/2º Cuatri/IA/practica1/src/modelos/aldeano/brazo.cpp"
 /usr/bin/cmake -E cmake_echo_color --switch= --green --progress-dir="/home/icaro/Escritorio/2º Cuatri/IA/practica1/CMakeFiles" --progress-num=42 "Building CXX object CMakeFiles/modelosBelkanLib.dir/src/modelos/aldeano/cabeza.cpp.o"
 /usr/bin/c++  -I"/home/icaro/Escritorio/2º Cuatri/IA/practica1/include" -fopenmp -pthread -std=c++11 -MD -MT CMakeFiles/modelosBelkanLib.dir/src/modelos/aldeano/cabeza.cpp.o -MF CMakeFiles/modelosBelkanLib.dir/src/modelos/aldeano/cabeza.cpp.o.d -o CMakeFiles/modelosBelkanLib.dir/src/modelos/aldeano/cabeza.cpp.o -c "/home/icaro/Escritorio/2º Cuatri/IA/practica1/src/modelos/aldeano/cabeza.cpp"
 /usr/bin/cmake -E cmake_echo_color --switch= --green --progress-dir="/home/icaro/Escritorio/2º Cuatri/IA/practica1/CMakeFiles" --progress-num=43 "Building CXX object CMakeFiles/modelosBelkanLib.dir/src/modelos/aldeano/cintura.cpp.o"
 /usr/bin/c++  -I"/home/icaro/Escritorio/2º Cuatri/IA/practica1/include" -fopenmp -pthread -std=c++11 -MD -MT CMakeFiles/modelosBelkanLib.dir/src/modelos/aldeano/cintura.cpp.o -MF CMakeFiles/modelosBelkanLib.dir/src/modelos/aldeano/cintura.cpp.o.d -o CMakeFiles/modelosBelkanLib.dir/src/modelos/aldeano/cintura.cpp.o -c "/home/icaro/Escritorio/2º Cuatri/IA/practica1/src/modelos/aldeano/cintura.cpp"
- 
 /usr/bin/cmake -E cmake_echo_color --switch= --green --progress-dir="/home/icaro/Escritorio/2º Cuatri/IA/practica1/CMakeFiles" --progress-num=44 "Building CXX object CMakeFiles/modelosBelkanLib.dir/src/modelos/aldeano/pierna.cpp.o"
 /usr/bin/c++  -I"/home/icaro/Escritorio/2º Cuatri/IA/practica1/include" -fopenmp -pthread -std=c++11 -MD -MT CMakeFiles/modelosBelkanLib.dir/src/modelos/aldeano/pierna.cpp.o -MF CMakeFiles/modelosBelkanLib.dir/src/modelos/aldeano/pierna.cpp.o.d -o CMakeFiles/modelosBelkanLib.dir/src/modelos/aldeano/pierna.cpp.o -c "/home/icaro/Escritorio/2º Cuatri/IA/practica1/src/modelos/aldeano/pierna.cpp"
- 
 /usr/bin/cmake -E cmake_echo_color --switch= --green --progress-dir="/home/icaro/Escritorio/2º Cuatri/IA/practica1/CMakeFiles" --progress-num=45 "Building CXX object CMakeFiles/modelosBelkanLib.dir/src/modelos/aldeano/torso.cpp.o"
 /usr/bin/c++  -I"/home/icaro/Escritorio/2º Cuatri/IA/practica1/include" -fopenmp -pthread -std=c++11 -MD -MT CMakeFiles/modelosBelkanLib.dir/src/modelos/aldeano/torso.cpp.o -MF CMakeFiles/modelosBelkanLib.dir/src/modelos/aldeano/torso.cpp.o.d -o CMakeFiles/modelosBelkanLib.dir/src/modelos/aldeano/torso.cpp.o -c "/home/icaro/Escritorio/2º Cuatri/IA/practica1/src/modelos/aldeano/torso.cpp"
- 
 /usr/bin/cmake -E cmake_echo_color --switch= --green --progress-dir="/home/icaro/Escritorio/2º Cuatri/IA/practica1/CMakeFiles" --progress-num=46 "Building CXX object CMakeFiles/modelosBelkanLib.dir/src/modelos/arbol/arbol.cpp.o"
 /usr/bin/c++  -I"/home/icaro/Escritorio/2º Cuatri/IA/practica1/include" -fopenmp -pthread -std=c++11 -MD -MT CMakeFiles/modelosBelkanLib.dir/src/modelos/arbol/arbol.cpp.o -MF CMakeFiles/modelosBelkanLib.dir/src/modelos/arbol/arbol.cpp.o.d -o CMakeFiles/modelosBelkanLib.dir/src/modelos/arbol/arbol.cpp.o -c "/home/icaro/Escritorio/2º Cuatri/IA/practica1/src/modelos/arbol/arbol.cpp"
- 
 /usr/bin/cmake -E cmake_echo_color --switch= --green --progress-dir="/home/icaro/Escritorio/2º Cuatri/IA/practica1/CMakeFiles" --progress-num=47 "Building CXX object CMakeFiles/modelosBelkanLib.dir/src/modelos/item/item.cpp.o"
 /usr/bin/c++  -I"/home/icaro/Escritorio/2º Cuatri/IA/practica1/include" -fopenmp -pthread -std=c++11 -MD -MT CMakeFiles/modelosBelkanLib.dir/src/modelos/item/item.cpp.o -MF CMakeFiles/modelosBelkanLib.dir/src/modelos/item/item.cpp.o.d -o CMakeFiles/modelosBelkanLib.dir/src/modelos/item/item.cpp.o -c "/home/icaro/Escritorio/2º Cuatri/IA/practica1/src/modelos/item/item.cpp"
 /usr/bin/cmake -E cmake_echo_color --switch= --green --progress-dir="/home/icaro/Escritorio/2º Cuatri/IA/practica1/CMakeFiles" --progress-num=48 "Building CXX object CMakeFiles/modelosBelkanLib.dir/src/modelos/jugador/jugador3d.cpp.o"
 /usr/bin/c++  -I"/home/icaro/Escritorio/2º Cuatri/IA/practica1/include" -fopenmp -pthread -std=c++11 -MD -MT CMakeFiles/modelosBelkanLib.dir/src/modelos/jugador/jugador3d.cpp.o -MF CMakeFiles/modelosBelkanLib.dir/src/modelos/jugador/jugador3d.cpp.o.d -o CMakeFiles/modelosBelkanLib.dir/src/modelos/jugador/jugador3d.cpp.o -c "/home/icaro/Escritorio/2º Cuatri/IA/practica1/src/modelos/jugador/jugador3d.cpp"
 /usr/bin/cmake -E cmake_echo_color --switch= --green --progress-dir="/home/icaro/Escritorio/2º Cuatri/IA/practica1/CMakeFiles" --progress-num=49 "Building CXX object CMakeFiles/modelosBelkanLib.dir/src/modelos/jugador/quesito.cpp.o"
 /usr/bin/c++  -I"/home/icaro/Escritorio/2º Cuatri/IA/practica1/include" -fopenmp -pthread -std=c++11 -MD -MT CMakeFiles/modelosBelkanLib.dir/src/modelos/jugador/quesito.cpp.o -MF CMakeFiles/modelosBelkanLib.dir/src/modelos/jugador/quesito.cpp.o.d -o CMakeFiles/modelosBelkanLib.dir/src/modelos/jugador/quesito.cpp.o -c "/home/icaro/Escritorio/2º Cuatri/IA/practica1/src/modelos/jugador/quesito.cpp"
- 
 /usr/bin/cmake -E cmake_echo_color --switch= --green --progress-dir="/home/icaro/Escritorio/2º Cuatri/IA/practica1/CMakeFiles" --progress-num=50 "Building CXX object CMakeFiles/modelosBelkanLib.dir/src/modelos/perro/cabeza.cpp.o"
 /usr/bin/c++  -I"/home/icaro/Escritorio/2º Cuatri/IA/practica1/include" -fopenmp -pthread -std=c++11 -MD -MT CMakeFiles/modelosBelkanLib.dir/src/modelos/perro/cabeza.cpp.o -MF CMakeFiles/modelosBelkanLib.dir/src/modelos/perro/cabeza.cpp.o.d -o CMakeFiles/modelosBelkanLib.dir/src/modelos/perro/cabeza.cpp.o -c "/home/icaro/Escritorio/2º Cuatri/IA/practica1/src/modelos/perro/cabeza.cpp"
 /usr/bin/cmake -E cmake_echo_color --switch= --green --progress-dir="/home/icaro/Escritorio/2º Cuatri/IA/practica1/CMakeFiles" --progress-num=51 "Building CXX object CMakeFiles/modelosBelkanLib.dir/src/modelos/perro/lomo.cpp.o"
 /usr/bin/c++  -I"/home/icaro/Escritorio/2º Cuatri/IA/practica1/include" -fopenmp -pthread -std=c++11 -MD -MT CMakeFiles/modelosBelkanLib.dir/src/modelos/perro/lomo.cpp.o -MF CMakeFiles/modelosBelkanLib.dir/src/modelos/perro/lomo.cpp.o.d -o CMakeFiles/modelosBelkanLib.dir/src/modelos/perro/lomo.cpp.o -c "/home/icaro/Escritorio/2º Cuatri/IA/practica1/src/modelos/perro/lomo.cpp"
- 
 /usr/bin/cmake -E cmake_echo_color --switch= --green --progress-dir="/home/icaro/Escritorio/2º Cuatri/IA/practica1/CMakeFiles" --progress-num=52 "Building CXX object CMakeFiles/modelosBelkanLib.dir/src/modelos/perro/perro.cpp.o"
 /usr/bin/c++  -I"/home/icaro/Escritorio/2º Cuatri/IA/practica1/include" -fopenmp -pthread -std=c++11 -MD -MT CMakeFiles/modelosBelkanLib.dir/src/modelos/perro/perro.cpp.o -MF CMakeFiles/modelosBelkanLib.dir/src/modelos/perro/perro.cpp.o.d -o CMakeFiles/modelosBelkanLib.dir/src/modelos/perro/perro.cpp.o -c "/home/icaro/Escritorio/2º Cuatri/IA/practica1/src/modelos/perro/perro.cpp"
- 
 /usr/bin/cmake -E cmake_echo_color --switch= --green --progress-dir="/home/icaro/Escritorio/2º Cuatri/IA/practica1/CMakeFiles" --progress-num=53 "Building CXX object CMakeFiles/modelosBelkanLib.dir/src/modelos/retrato.cpp.o"
 /usr/bin/c++  -I"/home/icaro/Escritorio/2º Cuatri/IA/practica1/include" -fopenmp -pthread -std=c++11 -MD -MT CMakeFiles/modelosBelkanLib.dir/src/modelos/retrato.cpp.o -MF CMakeFiles/modelosBelkanLib.dir/src/modelos/retrato.cpp.o.d -o CMakeFiles/modelosBelkanLib.dir/src/modelos/retrato.cpp.o -c "/home/icaro/Escritorio/2º Cuatri/IA/practica1/src/modelos/retrato.cpp"
- 
 /usr/bin/cmake -E cmake_echo_color --switch= --green --bold --progress-dir="/home/icaro/Escritorio/2º Cuatri/IA/practica1/CMakeFiles" --progress-num=54 "Linking CXX static library lib/libmodelosBelkanLib.a"
 /usr/bin/cmake -P CMakeFiles/modelosBelkanLib.dir/cmake_clean_target.cmake
 /usr/bin/cmake -E cmake_link_script CMakeFiles/modelosBelkanLib.dir/link.txt --verbose=
 make[2]: Leaving directory '/home/icaro/Escritorio/2º Cuatri/IA/practica1'
- 
 /usr/bin/cmake -E cmake_echo_color --switch= --progress-dir="/home/icaro/Escritorio/2º Cuatri/IA/practica1/CMakeFiles" --progress-num=40,41,42,43,44,45,46,47,48,49,50,51,52,53,54 "Built target modelosBelkanLib"
- 
 make -s -f CMakeFiles/comportamientosLib.dir/build.make CMakeFiles/comportamientosLib.dir/depend
- 
 make[2]: Entering directory '/home/icaro/Escritorio/2º Cuatri/IA/practica1'
 cd "/home/icaro/Escritorio/2º Cuatri/IA/practica1" && /usr/bin/cmake -E cmake_depends "Unix Makefiles" "/home/icaro/Escritorio/2º Cuatri/IA/practica1" "/home/icaro/Escritorio/2º Cuatri/IA/practica1" "/home/icaro/Escritorio/2º Cuatri/IA/practica1" "/home/icaro/Escritorio/2º Cuatri/IA/practica1" "/home/icaro/Escritorio/2º Cuatri/IA/practica1/CMakeFiles/comportamientosLib.dir/DependInfo.cmake" --color=
 make[2]: Leaving directory '/home/icaro/Escritorio/2º Cuatri/IA/practica1'
@@ -204,7 +189,6 @@ make -s -f CMakeFiles/comportamientosLib.dir/build.make CMakeFiles/comportamient
 make[2]: Entering directory '/home/icaro/Escritorio/2º Cuatri/IA/practica1'
 /usr/bin/cmake -E cmake_echo_color --switch= --green --progress-dir="/home/icaro/Escritorio/2º Cuatri/IA/practica1/CMakeFiles" --progress-num=35 "Building CXX object CMakeFiles/comportamientosLib.dir/Comportamientos_Jugador/aldeano.cpp.o"
 /usr/bin/c++  -I"/home/icaro/Escritorio/2º Cuatri/IA/practica1/include" -fopenmp -pthread -std=c++11 -MD -MT CMakeFiles/comportamientosLib.dir/Comportamientos_Jugador/aldeano.cpp.o -MF CMakeFiles/comportamientosLib.dir/Comportamientos_Jugador/aldeano.cpp.o.d -o CMakeFiles/comportamientosLib.dir/Comportamientos_Jugador/aldeano.cpp.o -c "/home/icaro/Escritorio/2º Cuatri/IA/practica1/Comportamientos_Jugador/aldeano.cpp"
- 
 /usr/bin/cmake -E cmake_echo_color --switch= --green --progress-dir="/home/icaro/Escritorio/2º Cuatri/IA/practica1/CMakeFiles" --progress-num=36 "Building CXX object CMakeFiles/comportamientosLib.dir/Comportamientos_Jugador/jugador.cpp.o"
 /usr/bin/c++  -I"/home/icaro/Escritorio/2º Cuatri/IA/practica1/include" -fopenmp -pthread -std=c++11 -MD -MT CMakeFiles/comportamientosLib.dir/Comportamientos_Jugador/jugador.cpp.o -MF CMakeFiles/comportamientosLib.dir/Comportamientos_Jugador/jugador.cpp.o.d -o CMakeFiles/comportamientosLib.dir/Comportamientos_Jugador/jugador.cpp.o -c "/home/icaro/Escritorio/2º Cuatri/IA/practica1/Comportamientos_Jugador/jugador.cpp"
 /usr/bin/cmake -E cmake_echo_color --switch= --green --progress-dir="/home/icaro/Escritorio/2º Cuatri/IA/practica1/CMakeFiles" --progress-num=37 "Building CXX object CMakeFiles/comportamientosLib.dir/Comportamientos_Jugador/perro.cpp.o"
@@ -215,27 +199,22 @@ make[2]: Entering directory '/home/icaro/Escritorio/2º Cuatri/IA/practica1'
 /usr/bin/cmake -P CMakeFiles/comportamientosLib.dir/cmake_clean_target.cmake
 /usr/bin/cmake -E cmake_link_script CMakeFiles/comportamientosLib.dir/link.txt --verbose=
 make[2]: Leaving directory '/home/icaro/Escritorio/2º Cuatri/IA/practica1'
- 
 /usr/bin/cmake -E cmake_echo_color --switch= --progress-dir="/home/icaro/Escritorio/2º Cuatri/IA/practica1/CMakeFiles" --progress-num=35,36,37,38,39 "Built target comportamientosLib"
 make -s -f CMakeFiles/motorLib.dir/build.make CMakeFiles/motorLib.dir/depend
- 
 make[2]: Entering directory '/home/icaro/Escritorio/2º Cuatri/IA/practica1'
 cd "/home/icaro/Escritorio/2º Cuatri/IA/practica1" && /usr/bin/cmake -E cmake_depends "Unix Makefiles" "/home/icaro/Escritorio/2º Cuatri/IA/practica1" "/home/icaro/Escritorio/2º Cuatri/IA/practica1" "/home/icaro/Escritorio/2º Cuatri/IA/practica1" "/home/icaro/Escritorio/2º Cuatri/IA/practica1" "/home/icaro/Escritorio/2º Cuatri/IA/practica1/CMakeFiles/motorLib.dir/DependInfo.cmake" --color=
 make[2]: Leaving directory '/home/icaro/Escritorio/2º Cuatri/IA/practica1'
- 
 make -s -f CMakeFiles/motorLib.dir/build.make CMakeFiles/motorLib.dir/build
- 
 make[2]: Entering directory '/home/icaro/Escritorio/2º Cuatri/IA/practica1'
 /usr/bin/cmake -E cmake_echo_color --switch= --green --progress-dir="/home/icaro/Escritorio/2º Cuatri/IA/practica1/CMakeFiles" --progress-num=55 "Building CXX object CMakeFiles/motorLib.dir/src/motorlib/entidad.cpp.o"
 /usr/bin/c++  -I"/home/icaro/Escritorio/2º Cuatri/IA/practica1/include" -fopenmp -pthread -std=c++11 -MD -MT CMakeFiles/motorLib.dir/src/motorlib/entidad.cpp.o -MF CMakeFiles/motorLib.dir/src/motorlib/entidad.cpp.o.d -o CMakeFiles/motorLib.dir/src/motorlib/entidad.cpp.o -c "/home/icaro/Escritorio/2º Cuatri/IA/practica1/src/motorlib/entidad.cpp"
- 
 /usr/bin/cmake -E cmake_echo_color --switch= --green --progress-dir="/home/icaro/Escritorio/2º Cuatri/IA/practica1/CMakeFiles" --progress-num=56 "Building CXX object CMakeFiles/motorLib.dir/src/motorlib/mapa.cpp.o"
 /usr/bin/c++  -I"/home/icaro/Escritorio/2º Cuatri/IA/practica1/include" -fopenmp -pthread -std=c++11 -MD -MT CMakeFiles/motorLib.dir/src/motorlib/mapa.cpp.o -MF CMakeFiles/motorLib.dir/src/motorlib/mapa.cpp.o.d -o CMakeFiles/motorLib.dir/src/motorlib/mapa.cpp.o -c "/home/icaro/Escritorio/2º Cuatri/IA/practica1/src/motorlib/mapa.cpp"
 /usr/bin/cmake -E cmake_echo_color --switch= --green --progress-dir="/home/icaro/Escritorio/2º Cuatri/IA/practica1/CMakeFiles" --progress-num=57 "Building CXX object CMakeFiles/motorLib.dir/src/motorlib/monitor.cpp.o"
 /usr/bin/c++  -I"/home/icaro/Escritorio/2º Cuatri/IA/practica1/include" -fopenmp -pthread -std=c++11 -MD -MT CMakeFiles/motorLib.dir/src/motorlib/monitor.cpp.o -MF CMakeFiles/motorLib.dir/src/motorlib/monitor.cpp.o.d -o CMakeFiles/motorLib.dir/src/motorlib/monitor.cpp.o -c "/home/icaro/Escritorio/2º Cuatri/IA/practica1/src/motorlib/monitor.cpp"
- 
 /usr/bin/cmake -E cmake_echo_color --switch= --green --progress-dir="/home/icaro/Escritorio/2º Cuatri/IA/practica1/CMakeFiles" --progress-num=58 "Building CXX object CMakeFiles/motorLib.dir/src/motorlib/motor_grafico.cpp.o"
 /usr/bin/c++  -I"/home/icaro/Escritorio/2º Cuatri/IA/practica1/include" -fopenmp -pthread -std=c++11 -MD -MT CMakeFiles/motorLib.dir/src/motorlib/motor_grafico.cpp.o -MF CMakeFiles/motorLib.dir/src/motorlib/motor_grafico.cpp.o.d -o CMakeFiles/motorLib.dir/src/motorlib/motor_grafico.cpp.o -c "/home/icaro/Escritorio/2º Cuatri/IA/practica1/src/motorlib/motor_grafico.cpp"
+ 
 /usr/bin/cmake -E cmake_echo_color --switch= --green --progress-dir="/home/icaro/Escritorio/2º Cuatri/IA/practica1/CMakeFiles" --progress-num=59 "Building CXX object CMakeFiles/motorLib.dir/src/motorlib/motor_juego.cpp.o"
 /usr/bin/c++  -I"/home/icaro/Escritorio/2º Cuatri/IA/practica1/include" -fopenmp -pthread -std=c++11 -MD -MT CMakeFiles/motorLib.dir/src/motorlib/motor_juego.cpp.o -MF CMakeFiles/motorLib.dir/src/motorlib/motor_juego.cpp.o.d -o CMakeFiles/motorLib.dir/src/motorlib/motor_juego.cpp.o -c "/home/icaro/Escritorio/2º Cuatri/IA/practica1/src/motorlib/motor_juego.cpp"
 /usr/bin/cmake -E cmake_echo_color --switch= --green --progress-dir="/home/icaro/Escritorio/2º Cuatri/IA/practica1/CMakeFiles" --progress-num=60 "Building CXX object CMakeFiles/motorLib.dir/src/motorlib/util.cpp.o"
@@ -243,7 +222,6 @@ make[2]: Entering directory '/home/icaro/Escritorio/2º Cuatri/IA/practica1'
 /usr/bin/cmake -E cmake_echo_color --switch= --green --bold --progress-dir="/home/icaro/Escritorio/2º Cuatri/IA/practica1/CMakeFiles" --progress-num=61 "Linking CXX static library lib/libmotorLib.a"
 /usr/bin/cmake -P CMakeFiles/motorLib.dir/cmake_clean_target.cmake
 /usr/bin/cmake -E cmake_link_script CMakeFiles/motorLib.dir/link.txt --verbose=
- 
 make[2]: Leaving directory '/home/icaro/Escritorio/2º Cuatri/IA/practica1'
 /usr/bin/cmake -E cmake_echo_color --switch= --progress-dir="/home/icaro/Escritorio/2º Cuatri/IA/practica1/CMakeFiles" --progress-num=55,56,57,58,59,60,61 "Built target motorLib"
 make -s -f CMakeFiles/practica1.dir/build.make CMakeFiles/practica1.dir/depend
@@ -257,32 +235,28 @@ make -s -f CMakeFiles/practica1.dir/build.make CMakeFiles/practica1.dir/build
 make[2]: Entering directory '/home/icaro/Escritorio/2º Cuatri/IA/practica1'
 /usr/bin/cmake -E cmake_echo_color --switch= --green --progress-dir="/home/icaro/Escritorio/2º Cuatri/IA/practica1/CMakeFiles" --progress-num=79 "Building CXX object CMakeFiles/practica1.dir/bin_src/juego.cc.o"
 /usr/bin/c++  -I"/home/icaro/Escritorio/2º Cuatri/IA/practica1/include" -fopenmp -pthread -std=c++11 -MD -MT CMakeFiles/practica1.dir/bin_src/juego.cc.o -MF CMakeFiles/practica1.dir/bin_src/juego.cc.o.d -o CMakeFiles/practica1.dir/bin_src/juego.cc.o -c "/home/icaro/Escritorio/2º Cuatri/IA/practica1/bin_src/juego.cc"
+/usr/bin/cmake -E cmake_echo_color --switch= --green --bold --progress-dir="/home/icaro/Escritorio/2º Cuatri/IA/practica1/CMakeFiles" --progress-num=80 "Linking CXX executable practica1"
+/usr/bin/cmake -E cmake_link_script CMakeFiles/practica1.dir/link.txt --verbose=
 make[2]: Leaving directory '/home/icaro/Escritorio/2º Cuatri/IA/practica1'
+ 
+/usr/bin/cmake -E cmake_echo_color --switch= --progress-dir="/home/icaro/Escritorio/2º Cuatri/IA/practica1/CMakeFiles" --progress-num=79,80 "Built target practica1"
+ 
 make -s -f CMakeFiles/practica1SG.dir/build.make CMakeFiles/practica1SG.dir/depend
+ 
 make[2]: Entering directory '/home/icaro/Escritorio/2º Cuatri/IA/practica1'
 cd "/home/icaro/Escritorio/2º Cuatri/IA/practica1" && /usr/bin/cmake -E cmake_depends "Unix Makefiles" "/home/icaro/Escritorio/2º Cuatri/IA/practica1" "/home/icaro/Escritorio/2º Cuatri/IA/practica1" "/home/icaro/Escritorio/2º Cuatri/IA/practica1" "/home/icaro/Escritorio/2º Cuatri/IA/practica1" "/home/icaro/Escritorio/2º Cuatri/IA/practica1/CMakeFiles/practica1SG.dir/DependInfo.cmake" --color=
 make[2]: Leaving directory '/home/icaro/Escritorio/2º Cuatri/IA/practica1'
-make -s -f CMakeFiles/practica1SG.dir/build.make CMakeFiles/practica1SG.dir/build
  
-make[2]: *** No rule to make target 'lib/libobj3DLib.a', needed by 'practica1'.
-make[2]: *** No rule to make target 'lib/libmotorLib.a', needed by 'practica1'.
-make[2]: *** No rule to make target 'lib/libmodelosBelkanLib.a', needed by 'practica1'.
-make[2]: *** No rule to make target 'lib/libGLUILib.a', needed by 'practica1'.
-make[2]: *** No rule to make target 'lib/libcomportamientosLib.a', needed by 'practica1'.
-make[1]: *** [CMakeFiles/Makefile2:231: CMakeFiles/practica1.dir/all] Error 2
+make -s -f CMakeFiles/practica1SG.dir/build.make CMakeFiles/practica1SG.dir/build
  
 make[2]: Entering directory '/home/icaro/Escritorio/2º Cuatri/IA/practica1'
 /usr/bin/cmake -E cmake_echo_color --switch= --green --progress-dir="/home/icaro/Escritorio/2º Cuatri/IA/practica1/CMakeFiles" --progress-num=81 "Building CXX object CMakeFiles/practica1SG.dir/bin_src/juegoSG.cc.o"
 /usr/bin/c++  -I"/home/icaro/Escritorio/2º Cuatri/IA/practica1/include" -fopenmp -pthread -std=c++11 -MD -MT CMakeFiles/practica1SG.dir/bin_src/juegoSG.cc.o -MF CMakeFiles/practica1SG.dir/bin_src/juegoSG.cc.o.d -o CMakeFiles/practica1SG.dir/bin_src/juegoSG.cc.o -c "/home/icaro/Escritorio/2º Cuatri/IA/practica1/bin_src/juegoSG.cc"
+/usr/bin/cmake -E cmake_echo_color --switch= --green --bold --progress-dir="/home/icaro/Escritorio/2º Cuatri/IA/practica1/CMakeFiles" --progress-num=82 "Linking CXX executable practica1SG"
+/usr/bin/cmake -E cmake_link_script CMakeFiles/practica1SG.dir/link.txt --verbose=
 make[2]: Leaving directory '/home/icaro/Escritorio/2º Cuatri/IA/practica1'
+/usr/bin/cmake -E cmake_echo_color --switch= --progress-dir="/home/icaro/Escritorio/2º Cuatri/IA/practica1/CMakeFiles" --progress-num=81,82 "Built target practica1SG"
 make[1]: Leaving directory '/home/icaro/Escritorio/2º Cuatri/IA/practica1'
+/usr/bin/cmake -E cmake_progress_start "/home/icaro/Escritorio/2º Cuatri/IA/practica1/CMakeFiles" 0
 make: Leaving directory '/home/icaro/Escritorio/2º Cuatri/IA/practica1'
- 
-make[2]: *** No rule to make target 'lib/libobj3DLib.a', needed by 'practica1SG'.
-make[2]: *** No rule to make target 'lib/libmotorLib.a', needed by 'practica1SG'.
-make[2]: *** No rule to make target 'lib/libmodelosBelkanLib.a', needed by 'practica1SG'.
-make[2]: *** No rule to make target 'lib/libGLUILib.a', needed by 'practica1SG'.
-make[2]: *** No rule to make target 'lib/libcomportamientosLib.a', needed by 'practica1SG'.
-make[1]: *** [CMakeFiles/Makefile2:261: CMakeFiles/practica1SG.dir/all] Error 2
-make: *** [Makefile:91: all] Error 2
  

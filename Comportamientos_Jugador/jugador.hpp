@@ -16,7 +16,7 @@ class ComportamientoJugador : public Comportamiento{
       girar_derecha=false;
       bien_situado=false;
       bikini = zapatillas = recarga = false;
-
+      tiempo_recarga = 5;
       sensores_nivel1 = true;
       nivel = 100;
     }
@@ -30,11 +30,14 @@ class ComportamientoJugador : public Comportamiento{
   private:
   
   // Declarar aquí las variables de estado
-  int fil,col,brujula, nivel;
+  int fil,col,brujula, nivel, tiempo_recarga;
   Action ultimaAccion;
   bool girar_derecha, bien_situado, bikini, zapatillas, recarga;
   char mapaAux[100][100]; // por si lo necesito
   bool sensores_nivel1;
+
+  bool baterial_alta;
+  bool bateria_baja;
 
   // necesito variable para que gire aleatoriamente, cuando llegue a 0
 
@@ -42,9 +45,8 @@ class ComportamientoJugador : public Comportamiento{
   void ActualizarMapa(Sensores sensores);
   bool Avanzar(Sensores sensores);
   Action Girar(Sensores sensores);
-  void Recargar(Sensores sensores);
+  void Recargar();
   void CasillaEspecial(Sensores sensores);
-
   char Mapa(Sensores sensores);
 
   Action Comportamiento_nivel0(Sensores sensores, Action accion);

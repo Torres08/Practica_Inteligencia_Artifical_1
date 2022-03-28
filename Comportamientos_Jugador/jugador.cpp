@@ -39,6 +39,7 @@ Action ComportamientoJugador::think(Sensores sensores) {
   cout << "Zapatillas: " << zapatillas  << endl;
   cout << "Recarga: " << recarga << endl;
   cout << "Nivel: " << nivel << endl;
+  cout << "Tiempo Recarga: " << tiempo_recarga << endl;
   cout << endl;
 
   // Metodo think
@@ -246,11 +247,23 @@ Action ComportamientoJugador::Comportamiento_nivel0(Sensores sensores, Action ac
   if (Avanzar(sensores)){
     accion = actFORWARD;
 
+  } else if (recarga) {
+    accion = actIDLE; // paro 5 acciones
+    Recargar();
+    /*
+    tiempo_recarga--;
+    if (tiempo_recarga == 0){
+      recarga = false;
+      tiempo_recarga = 5;
+    }
+    */
+      
   } else {
     accion= Girar(sensores);
   }
 
 
+  bien_situado = true;
   CasillaEspecial(sensores);
   return accion;
   
@@ -298,7 +311,8 @@ Action ComportamientoJugador::Comportamiento_nivel1(Sensores sensores, Action ac
   // Decidir la nueva accion
   if (Avanzar(sensores)){
     accion = actFORWARD;
-
+  } else if (recarga) {
+    accion = actIDLE; // paro 5 acciones
   } else {
     accion= Girar(sensores);
   }
@@ -341,7 +355,7 @@ Action ComportamientoJugador::Comportamiento_nivel1(Sensores sensores, Action ac
 */
 bool ComportamientoJugador::Avanzar(Sensores sensores){
 	
-  bool b1 = (sensores.terreno[2] == 'T' or sensores.terreno[2] == 'S' or sensores.terreno[2] == 'G' or sensores.terreno[2] == 'D' or sensores.terreno[2] == 'K');
+  bool b1 = (sensores.terreno[2] == 'T' or sensores.terreno[2] == 'S' or sensores.terreno[2] == 'G' or sensores.terreno[2] == 'D' or sensores.terreno[2] == 'K' or sensores.terreno[2] == 'X');
   bool b2 = (sensores.superficie[2] == '_');
   bool condicion_zapatillas = (sensores.terreno[2] == 'B');
   bool condicion_bikini = (sensores.terreno[2] == 'A');
@@ -380,8 +394,12 @@ Action ComportamientoJugador::Girar(Sensores sensores){
   return accion;
 }
 
-void ComportamientoJugador::Recargar (Sensores sensores){
-
+void ComportamientoJugador::Recargar (){
+    tiempo_recarga--;
+    if (tiempo_recarga == 0){
+      recarga = false;
+      tiempo_recarga = 5;
+    }
 }
 
 void ComportamientoJugador::CasillaEspecial(Sensores sensores){
@@ -393,6 +411,8 @@ void ComportamientoJugador::CasillaEspecial(Sensores sensores){
 
   if (sensores.terreno[2] == 'X') 
     recarga = true;
+  
+  
 
   
 
