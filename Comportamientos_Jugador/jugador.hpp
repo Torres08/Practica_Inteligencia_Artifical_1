@@ -58,6 +58,8 @@ class ComportamientoJugador : public Comportamiento{
   int filas_mover = 0;
   int columnas_mover = 0;
   bool inicializamos = true;
+  bool destino_visto = false;
+  bool bien_situado2 = false;
   
 
   //bool ahorro_bateria;
@@ -92,6 +94,7 @@ class ComportamientoJugador : public Comportamiento{
 
   Action Comportamiento_nivel0(Sensores sensores, Action accion);
   Action Comportamiento_nivel1_2(Sensores sensores, Action accion);
+  Action Prueba(Sensores sensores, Action accion);
 };
 
 #endif
