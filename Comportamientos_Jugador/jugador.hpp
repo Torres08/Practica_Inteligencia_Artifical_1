@@ -17,9 +17,16 @@ class ComportamientoJugador : public Comportamiento{
       bien_situado=false;
       bikini = zapatillas = recarga = false;
       tiempo_recarga = 5;
-      sensores_nivel1 = true;
-      nivel = 100;
-    }
+      nivel = -1;
+      modo_bajabateria = false;
+      pasos = 0;
+      destino.c = 0;
+      destino.f = 0;
+      modo_busqueda = false;
+      modo_aleatorio = true;
+      
+
+      }
 
     ComportamientoJugador(const ComportamientoJugador & comport) : Comportamiento(comport){}
     ~ComportamientoJugador(){}
@@ -29,16 +36,47 @@ class ComportamientoJugador : public Comportamiento{
 
   private:
   
-  // Declarar aquí las variables de estado
-  int fil,col,brujula, nivel, tiempo_recarga;
-  Action ultimaAccion;
-  bool girar_derecha, bien_situado, bikini, zapatillas, recarga;
-  char mapaAux[100][100]; // por si lo necesito
-  bool sensores_nivel1;
+  // Variables de estado
+  int fil,col,brujula, nivel, tiempo_recarga, pasos;  // fila, columna , brujula, nivel , tiempo_recarga, pasos
+  Action ultimaAccion; // ulltima accion
+  bool girar_derecha, bien_situado, bikini, zapatillas, recarga; // bien_situado deberia cambiarlo
+ 
+  
 
-  bool baterial_alta;
-  bool bateria_baja;
+  bool modo_busqueda; // modos del robot - busqueda si hay una casilla cerca
+  bool modo_aleatorio; // modo del robot - aleatorio, modo general si encuantra pared gira
+  bool modo_bajabateria; // modo del robot - gira mas al tener menos bateria, cada x pasos hace un giro
+  
 
+  // Busqueda de la casilla
+  bool aun_no = true; // aun no he encontrado una casilla azul
+  int fild = 0;
+  int cold = 0;
+  int x = 0;
+  int iniciof = 0;
+  int inicioc = 0;
+  int filas_mover = 0;
+  int columnas_mover = 0;
+  bool inicializamos = true;
+  
+
+  //bool ahorro_bateria;
+  //bool una_vez = true;
+  bool terminado = false;
+  bool hago_filas = true;
+  bool hago_columnas = false;
+  bool TT = false; // fin hago filas y columnas ya he llegado
+  struct punto{
+        int f;
+        int c;
+  }destino;
+
+
+
+
+
+
+  
   // necesito variable para que gire aleatoriamente, cuando llegue a 0
 
   // funciones privadas 
@@ -49,8 +87,11 @@ class ComportamientoJugador : public Comportamiento{
   void CasillaEspecial(Sensores sensores);
   char Mapa(Sensores sensores);
 
+  Action Mover_Dirigido(Sensores sensores, int origenf, int origenc, int destinof, int destinoc);
+  punto Calculo_Punto(Sensores sensores, int fil, int col, int x);
+
   Action Comportamiento_nivel0(Sensores sensores, Action accion);
-  Action Comportamiento_nivel1(Sensores sensores, Action accion);
+  Action Comportamiento_nivel1_2(Sensores sensores, Action accion);
 };
 
 #endif
