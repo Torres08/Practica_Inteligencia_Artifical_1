@@ -6,8 +6,16 @@ Action ComportamientoJugador::think(Sensores sensores) {
 
   Action accion = actIDLE;
   // brujula= sensores.sentido;
+
+  if (sensores.reset){
+    cout << "Reinicio " << endl;
+    reiniciar();
+  }
+
   cout << "Posicion: fila " << sensores.posF << " columna " << sensores.posC
        << " ";
+  cout << "fila: " << fil << endl;
+  cout << "Columna: " << col << endl;
   switch (sensores.sentido) {
   case 0:
     cout << "Norte" << endl;
@@ -40,8 +48,6 @@ Action ComportamientoJugador::think(Sensores sensores) {
   cout << "Recarga: " << recarga << endl;
   cout << "Nivel: " << nivel << endl;
   cout << "Tiempo Recarga: " << tiempo_recarga << endl;
-  cout << "Pasos Giro: " << pasos << endl;
-  cout << "Ahorro bateria: " << modo_bajabateria << endl;
   cout << endl;
 
   // Metodo think
@@ -74,64 +80,7 @@ Action ComportamientoJugador::think(Sensores sensores) {
     break;
   }
 
-  /*
-
-  //if (sensores.terreno[0] == 'G' and !bien_situado) {
-    fil = sensores.posF;
-    col = sensores.posC;
-    brujula= sensores.sentido;
-    //bien_situado = true;
-  //}
-
-
-   if (bien_situado){
-                ActualizarMapa(sensores);
-      //mapaResultado[fil][col]=sensores.terreno[0];
-   }
-
-  // Decidir la nueva accion
-
-  if (Avanzar(sensores)){
-    accion = actFORWARD;
-  } else {
-   accion= Girar(sensores);
-   //brujula= sensores.sentido;
-  }
-
-  // compruebo si he pasado por una casilla de bikini o de zapatillas
-  // Compruebo casilla especial
-
-  CasillaEspecial(sensores);
-
-  if (sensores.terreno[2] == 'K')
-    bikini = true;
-
-  if (sensores.terreno[2] == 'D')
-    zapatillas = true;
-
-  if (sensores.terreno[2] == 'X')
-    recarga = true;
-bien_situado=true;
-  */
-
-  /*
-   if (Avanzar(sensores)){
-     accion = actFORWARD;
-   } else {
-    accion= Girar(sensores);
-    //brujula= sensores.sentido;
-   }
-  */
-
-  // dependiendo de la accion hago una cosa u otra
-  
-
-
-
-
-
-
-
+  // COMPORBAMOS QUE NIVEL USAMOS
 
   if (bien_situado3)
   switch (sensores.nivel) {
@@ -171,32 +120,6 @@ bien_situado=true;
       */
   }
 
-  // TENGO QUE BUSCAR UNA FORMA QUE VAYA A LA CASILLA AZUL
-
-  /*
-    If(Avanzar(sensores)){
-      accion = actFORWARD;
-    else {
-        Giro(sensores);
-    }
-    }
-  */
-
-  /*
-  if ((sensores.terreno[2] == 'T' or sensores.terreno[2] == 'S' or
-       sensores.terreno[2] == 'G') and
-      sensores.superficie[2] == '_') {
-    accion = actFORWARD;
-  } else if (!girar_derecha) {
-    accion = actTURN_L;
-  } else {
-    accion = actTURN_R;
-  }
-  */
-
-  // reconoce la casilla G la azul deja un rastro de lo visto
-  // cono de visualización
-
   // Recordar la ultima accion
  
   bien_situado3 = true;
@@ -209,18 +132,7 @@ bien_situado=true;
 
 int ComportamientoJugador::interact(Action accion, int valor) { return false; }
 
-// Mis funciones
 
-// Mientras que no sea un muro o un precipicio paso
-/*
-bool hayObstaculo(unsigned char casilla) {
-  if (casilla == 'P' or casilla == 'M') {
-    return true;
-  } else {
-    return false;
-  }
-}
-*/
 
 // Cono, actualizo el mapa
 /*
@@ -276,7 +188,8 @@ Action ComportamientoJugador::Prueba(Sensores sensores, Action accion) {
         casilla_azul_encontrada = true;
         
       } 
-  } else if (!zapatillas_encontradas){
+  } 
+  if (!zapatillas_encontradas){
     for (int i = 0; i < 15; i++)
       if (sensores.terreno[i] == 'D'){
         x = i;
@@ -285,7 +198,8 @@ Action ComportamientoJugador::Prueba(Sensores sensores, Action accion) {
         zapatillas_encontradas = true;
         terminado5 = false;
       }
-  } else if (!bikini_encontrado){
+  } 
+  if (!bikini_encontrado){
     for (int i = 0; i < 15; i++)
       if (sensores.terreno[i] == 'K'){
         x = i;
@@ -294,7 +208,8 @@ Action ComportamientoJugador::Prueba(Sensores sensores, Action accion) {
         bikini_encontrado = true;
         terminado5 = false;
       }
-  } else if (!cargador_encontrado){
+  } 
+  if (!cargador_encontrado){
     for (int i = 0; i < 15; i++)
       if (sensores.terreno[i] == 'X'){
         x = i;
@@ -322,11 +237,9 @@ Action ComportamientoJugador::Prueba(Sensores sensores, Action accion) {
   } 
 
   if (sensores.terreno[0] == 'G'){
-     
       modo_busqueda = false;
       modo_aleatorio = true;
       inicializamos2 = true;
-      
   } else if (sensores.terreno[0] == 'D'){
 
       modo_busqueda = false;
@@ -341,6 +254,8 @@ Action ComportamientoJugador::Prueba(Sensores sensores, Action accion) {
       modo_aleatorio = true;
       inicializamos2 = true; 
   }
+
+  
   
   
   bien_situado3 = true;
@@ -469,7 +384,6 @@ Action ComportamientoJugador::Mover_Aleatorio(Sensores sensores){
     Action accion = actIDLE;
 
     if (recarga){
-      cout << "Hola " << endl;
       accion = actIDLE; // paro 5 acciones
       Recargar();
 
@@ -590,6 +504,27 @@ Action ComportamientoJugador::Girar(Sensores sensores) {
   return accion;
 }
 
+void ComportamientoJugador::reiniciar (){
+      ultimaAccion= actIDLE;
+      fil = 5;
+      col = 5;
+      brujula = 0;
+      girar_derecha=false;
+      bien_situado=false;
+      bikini = zapatillas = recarga = false;
+      tiempo_recarga = 5;
+      tiempo_giro = 15;
+      bien_situado2 = false;
+     
+      pasos = 0;
+      
+      modo_busqueda = false;
+      modo_aleatorio = true;
+      
+      arriba = 0;
+      lados = 0;
+}
+
 void ComportamientoJugador::Recargar() {
   tiempo_recarga--;
   if (tiempo_recarga == 0) {
@@ -615,16 +550,6 @@ void ComportamientoJugador::CasillaEspecial(Sensores sensores) {
       recarga = true;
   } 
 }
-
-/**
- * @brief Calculo Punto
- *
- * @param sensores
- * @param fil
- * @param col
- * @param x
- * @return ComportamientoJugador::punto
- */
 
 
 void ComportamientoJugador::ActualizarMapa(Sensores sensores) {

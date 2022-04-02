@@ -10,17 +10,16 @@ class ComportamientoJugador : public Comportamiento{
     ComportamientoJugador(unsigned int size) : Comportamiento(size){
       // Constructor de la clase
       // Dar el valor inicial a las variables de estado
+      
       fil=col=99;
-      //brujula=0;
       ultimaAccion= actIDLE;
       girar_derecha=false;
       bien_situado=false;
       bikini = zapatillas = recarga = false;
       tiempo_recarga = 5;
-      nivel = -1;
+      tiempo_giro = 15;
      
-      pasos = 0;
-      
+      nivel = -1;
       modo_busqueda = false;
       modo_aleatorio = true;
       
@@ -39,24 +38,19 @@ class ComportamientoJugador : public Comportamiento{
   private:
   
   // Variables de estado
-  int fil,col,brujula, nivel, tiempo_recarga, pasos;  // fila, columna , brujula, nivel , tiempo_recarga, pasos
+  int fil,col,brujula, nivel, tiempo_recarga, tiempo_giro, pasos;  // fila, columna , brujula, nivel , tiempo_recarga, pasos
   Action ultimaAccion; // ulltima accion
   bool girar_derecha, bien_situado, bikini, zapatillas, recarga; // bien_situado deberia cambiarlo
  
-  
-
   bool modo_busqueda; // modos del robot - busqueda si hay una casilla cerca
   bool modo_aleatorio; // modo del robot - aleatorio, modo general si encuantra pared gira
-  bool modo_bajabateria; // modo del robot - gira mas al tener menos bateria, cada x pasos hace un giro
+  
   
 
   // Busqueda de la casilla
   
-  int arriba;
-  int lados;
+  int arriba,lados;
   int x = 0;
-  
-  
   bool inicializamos = true;
   bool destino_visto = false;
   bool bien_situado2 = false;
@@ -75,13 +69,6 @@ class ComportamientoJugador : public Comportamiento{
   
 
   
-
-
-
-
-
-
-  
   // necesito variable para que gire aleatoriamente, cuando llegue a 0
 
   // funciones privadas 
@@ -90,16 +77,18 @@ class ComportamientoJugador : public Comportamiento{
   Action Girar(Sensores sensores);
   void Recargar();
   void CasillaEspecial(Sensores sensores);
+  void reiniciar();
   char Mapa(Sensores sensores);
 
   
   Action Mover_Aleatorio(Sensores sensores);
-  
   Action Mover_Dirigido_v2(int x);
   Action Comportamiento_nivel0(Sensores sensores, Action accion);
   Action Comportamiento_nivel1_2(Sensores sensores, Action accion);
 
   Action Prueba(Sensores sensores, Action accion);
+
+
 };
 
 #endif
