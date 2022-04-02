@@ -18,12 +18,14 @@ class ComportamientoJugador : public Comportamiento{
       bikini = zapatillas = recarga = false;
       tiempo_recarga = 5;
       nivel = -1;
-      modo_bajabateria = false;
+     
       pasos = 0;
-      destino.c = 0;
-      destino.f = 0;
+      
       modo_busqueda = false;
       modo_aleatorio = true;
+      
+      arriba = 0;
+      lados = 0;
       
 
       }
@@ -49,29 +51,30 @@ class ComportamientoJugador : public Comportamiento{
   
 
   // Busqueda de la casilla
-  bool aun_no = true; // aun no he encontrado una casilla azul
-  int fild = 0;
-  int cold = 0;
+  
+  int arriba;
+  int lados;
   int x = 0;
-  int iniciof = 0;
-  int inicioc = 0;
-  int filas_mover = 0;
-  int columnas_mover = 0;
+  
+  
   bool inicializamos = true;
   bool destino_visto = false;
   bool bien_situado2 = false;
+  bool inicializamos2 = true;
+  bool terminado5 = false;
+  bool bien_situado3 = false;
+ 
+  bool primera_vez = true;
+
+
+  bool casilla_azul_encontrada = false;
+  bool bikini_encontrado = false;
+  bool zapatillas_encontradas = false;
+  bool cargador_encontrado = false;
+  
   
 
-  //bool ahorro_bateria;
-  //bool una_vez = true;
-  bool terminado = false;
-  bool hago_filas = true;
-  bool hago_columnas = false;
-  bool TT = false; // fin hago filas y columnas ya he llegado
-  struct punto{
-        int f;
-        int c;
-  }destino;
+  
 
 
 
@@ -89,11 +92,13 @@ class ComportamientoJugador : public Comportamiento{
   void CasillaEspecial(Sensores sensores);
   char Mapa(Sensores sensores);
 
-  Action Mover_Dirigido(Sensores sensores, int origenf, int origenc, int destinof, int destinoc);
-  punto Calculo_Punto(Sensores sensores, int fil, int col, int x);
-
+  
+  Action Mover_Aleatorio(Sensores sensores);
+  
+  Action Mover_Dirigido_v2(int x);
   Action Comportamiento_nivel0(Sensores sensores, Action accion);
   Action Comportamiento_nivel1_2(Sensores sensores, Action accion);
+
   Action Prueba(Sensores sensores, Action accion);
 };
 

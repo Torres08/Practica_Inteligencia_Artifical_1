@@ -124,7 +124,16 @@ bien_situado=true;
   */
 
   // dependiendo de la accion hago una cosa u otra
+  
 
+
+
+
+
+
+
+
+  if (bien_situado3)
   switch (sensores.nivel) {
   case 0:
     // accion = Comportamiento_nivel0(sensores, accion);
@@ -146,7 +155,8 @@ bien_situado=true;
 
   case 4:
     nivel = 4;
-    accion = Comportamiento_nivel1_2(sensores, accion);
+    //accion = Comportamiento_nivel1_2(sensores, accion);
+    accion = Prueba(sensores, accion);
     break;
 
   default:
@@ -188,6 +198,8 @@ bien_situado=true;
   // cono de visualización
 
   // Recordar la ultima accion
+ 
+  bien_situado3 = true;
   ultimaAccion = accion;
   return accion;
 
@@ -249,63 +261,89 @@ Action ComportamientoJugador::Prueba(Sensores sensores, Action accion) {
     bien_situado2 = true;
   }
 
-  if (aun_no) {
+  // 1º buscamos
+
+  if (!casilla_azul_encontrada) {
     for (int i = 0; i < 15; i++)
       if (sensores.terreno[i] == 'G') {
         // Hay_casilla = true;
         x = i;
-        inicioc = col;
-        iniciof = fil;
+        //inicioc = col;
+        //iniciof = fil;
         modo_busqueda = true;
         modo_aleatorio = false;
+        terminado5 = false;
+        casilla_azul_encontrada = true;
+        
+      } 
+  } else if (!zapatillas_encontradas){
+    for (int i = 0; i < 15; i++)
+      if (sensores.terreno[i] == 'D'){
+        x = i;
+        modo_busqueda = true;
+        modo_aleatorio = false;
+        zapatillas_encontradas = true;
+        terminado5 = false;
+      }
+  } else if (!bikini_encontrado){
+    for (int i = 0; i < 15; i++)
+      if (sensores.terreno[i] == 'K'){
+        x = i;
+        modo_busqueda = true;
+        modo_aleatorio = false;
+        bikini_encontrado = true;
+        terminado5 = false;
+      }
+  } else if (!cargador_encontrado){
+    for (int i = 0; i < 15; i++)
+      if (sensores.terreno[i] == 'X'){
+        x = i;
+        modo_busqueda = true;
+        modo_aleatorio = false;
+        cargador_encontrado = true;
+        terminado5 = false;
       }
   }
+  
 
-  // cout << "Cual es: " << x << endl;
+  cout << "Cual es: " << x << endl;
   cout << "Modo Busqueda: " << modo_busqueda << endl;
   cout << "Modo Aleatorio: " << modo_aleatorio << endl;
+  //cout << "Modo Cambio: " << modo_cambio << endl;
 
-  if (modo_busqueda) {
+  if (modo_busqueda ) {
+    
+    accion = Mover_Dirigido_v2(x);
+    //accion = actFORWARD;
 
-    // modo_busqueda = true;
-    aun_no = false; // no quiero sobreescribirla ya tengo x
+  } else if (modo_aleatorio) { // modo aleatorio
 
-    cout << "\nEstoy en modo busqueda" << endl;
-    cout << "Casilla inicio: " << iniciof << " " << inicioc << endl;
-    if (modo_busqueda && !destino_visto) {
-      destino = Calculo_Punto(sensores, iniciof, inicioc, x);
-      destino_visto = true;
-    }
+    accion= Mover_Aleatorio(sensores);
+  } 
 
-    cout << "Casilla destino: " << destino.f << " " << destino.c << endl;
-
-    // accion =  Mover_Dirigido(sensores, iniciof, inicioc, destino.f,
-    // destino.c);
-    if (bien_situado) {
-      accion = Mover_Dirigido(sensores, iniciof, inicioc, destino.f, destino.c);
-      cout << "Muestro destino luego de accion: " << destino.f << " "
-           << destino.c << endl;
-      // accion = Mover_Dirigido(sensores, 7, 9, 4, 8);
-    }
-
-    if (fil == destino.f && col == destino.c)
+  if (sensores.terreno[0] == 'G'){
+     
       modo_busqueda = false;
+      modo_aleatorio = true;
+      inicializamos2 = true;
+      
+  } else if (sensores.terreno[0] == 'D'){
 
-  } else {
-
-    if (Avanzar(sensores)) {
-      accion = actFORWARD;
-
-    } else if (recarga) {
-      accion = actIDLE; // paro 5 acciones
-      Recargar();
-
-    } else {
-      accion = Girar(sensores);
-    }
+      modo_busqueda = false;
+      modo_aleatorio = true;
+      inicializamos2 = true;      
+  } else if (sensores.terreno[0] == 'K'){
+      modo_busqueda = false;
+      modo_aleatorio = true;
+      inicializamos2 = true; 
+  } else if (sensores.terreno[0] == 'X'){
+      modo_busqueda = false;
+      modo_aleatorio = true;
+      inicializamos2 = true; 
   }
-
-  bien_situado = true;
+  
+  
+  bien_situado3 = true;
   CasillaEspecial(sensores);
   return accion;
 }
@@ -325,6 +363,7 @@ Action ComportamientoJugador::Comportamiento_nivel0(Sensores sensores,
     accion = actFORWARD;
 
   } else if (recarga) {
+    cout << "Hola " << endl;
     accion = actIDLE; // paro 5 acciones
     Recargar();
     /*
@@ -425,6 +464,91 @@ Action ComportamientoJugador::Comportamiento_nivel1_2(Sensores sensores,
 /*
   Funciones Auxiliares
 */
+
+Action ComportamientoJugador::Mover_Aleatorio(Sensores sensores){
+    Action accion = actIDLE;
+
+    if (recarga){
+      cout << "Hola " << endl;
+      accion = actIDLE; // paro 5 acciones
+      Recargar();
+
+    } else if (Avanzar(sensores)) {
+      
+      accion = actFORWARD;
+
+    }  else {
+      accion = Girar(sensores);
+    }
+
+    return accion;
+}
+
+Action ComportamientoJugador::Mover_Dirigido_v2 (int x){
+  // me muevo hacia un sensor, compruebo cuantas casillas y eso me tendre que mover
+  Action accion = actIDLE;
+  
+  // calculo el numero de filas y columnas que me tendre que mover
+  // fild y cold son 2 contadores que me dicen el numero de filas a mover
+  if (inicializamos2){
+    //int arriba = 0; // cuando termine arriba determinamos el giro
+    //int lados = 0;
+    // numero de filas a mover
+    
+        if ((x == 1 or x == 2 or x == 3)) {
+          arriba = 1;
+        } else if ((x == 4 || x == 5 || x == 6 || x == 7 || x == 8)) {
+          arriba = 2;
+        } else if (x == 0) {
+          arriba = 0;
+        } else {
+          arriba = 3;
+        }
+        
+   
+
+    // Vemos que columna es
+    if ((x == 9 || x == 15)) {
+      lados = 3;
+    } else if ((x == 4 || x == 10 || x == 14 || x == 8)) {
+      lados = 2;
+    } else if ((x == 2 || x == 6 || x == 12)) {
+      lados = 0;
+    } else {
+      lados = 1;
+    }
+
+    inicializamos2 = false;
+  }
+
+  cout << "Arriba: " << arriba << endl;
+  cout << "Lados: " << lados << endl;
+  
+  if (arriba != 0){
+    accion = actFORWARD; 
+    arriba--;
+  } else if (arriba == 0 && !terminado5){
+    if ((x == 9 || x == 10 || x == 11 || x == 4 || x == 5 || x == 1)){
+         cout << "hola" << endl;
+        accion = actTURN_L;
+    } else if ((x == 13|| x == 14 || x == 15 || x == 7 || x == 8 || x == 3)){
+        cout << "hola2" << endl;
+        accion = actTURN_R;
+    }
+
+    terminado5 = true;
+  }else if (lados != 0){
+    accion = actFORWARD;
+    lados--;
+  }
+
+  //cout << "\nModo busqueda v2 hacia el sensor " << x << endl;
+  //cout << "Arriba: " << arriba << endl;
+  //cout << "Lados: " << lados << endl;
+
+  return accion;
+
+}
 bool ComportamientoJugador::Avanzar(Sensores sensores) {
 
   bool b1 = (sensores.terreno[2] == 'T' or sensores.terreno[2] == 'S' or
@@ -487,8 +611,9 @@ void ComportamientoJugador::CasillaEspecial(Sensores sensores) {
   if (sensores.terreno[2] == 'D')
     zapatillas = true;
 
-  if (sensores.terreno[2] == 'X')
-    recarga = true;
+  if (sensores.terreno[2] == 'X'){
+      recarga = true;
+  } 
 }
 
 /**
@@ -501,205 +626,6 @@ void ComportamientoJugador::CasillaEspecial(Sensores sensores) {
  * @return ComportamientoJugador::punto
  */
 
-ComportamientoJugador::punto
-ComportamientoJugador::Calculo_Punto(Sensores sensores, int fil, int col,
-                                     int x) {
-
-  brujula = sensores.sentido;
-  punto final;
-  final.c = 0;
-  final.f = 0;
-  int fild = 0;
-  int cold = 0;
-
-  if (brujula == 0 || brujula == 2) {
-    if ((x == 1 or x == 2 or x == 3)) {
-      fild = 1;
-    } else if ((x == 4 || x == 5 || x == 6 || x == 7 || x == 8)) {
-      fild = 2;
-    } else if (x == 0) {
-      fild = 0;
-    } else {
-      fild = 3;
-    }
-
-    // Vemos que columna es
-    if ((x == 9 || x == 15)) {
-      cold = 3;
-    } else if ((x == 4 || x == 10 || x == 14 || x == 8)) {
-      cold = 2;
-    } else if ((x == 2 || x == 6 || x == 12)) {
-      cold = 0;
-    } else {
-      cold = 1;
-    }
-  } else {
-    if ((x == 1 or x == 2 or x == 3)) {
-      cold = 1;
-    } else if ((x == 4 || x == 5 || x == 6 || x == 7 || x == 8)) {
-      cold = 2;
-    } else if (x == 0) {
-      cold = 0;
-    } else {
-      cold = 3;
-    }
-
-    // Vemos que columna es
-    if ((x == 9 || x == 15)) {
-      fild = 3;
-    } else if ((x == 4 || x == 10 || x == 14 || x == 8)) {
-      fild = 2;
-    } else if ((x == 2 || x == 6 || x == 12)) {
-      fild = 0;
-    } else {
-      fild = 1;
-    }
-  }
-
-  // cout << "A sumar: " << fild << " " << cold << endl;
-
-  // cout << "Brujula: " << brujula << endl;
-
-  if (brujula == 0) {
-
-    fild = abs(fild - fil);
-
-    if ((x == 9 || x == 10 || x == 11 || x == 4 || x == 5 || x == 1))
-      cold = abs(col - cold);
-    else
-      cold = abs(col + cold);
-
-  } else if (brujula == 1) {
-    // cout << "¿Que resto? " << cold <<" - "<< col << endl;// cout <<"A sumar:
-    // " << fild << " " << cold << endl;
-    cold = abs(col + cold);
-
-    if ((x == 9 || x == 10 || x == 11 || x == 4 || x == 5 || x == 1))
-      fild = abs(fil - fild);
-    else
-      fild = abs(fil + fild);
-
-  } else if (brujula == 2) {
-    fild = abs(fil + fild);
-
-    if ((x == 9 || x == 10 || x == 11 || x == 4 || x == 5 || x == 1))
-      cold = abs(col + cold);
-    else
-      cold = abs(col - cold);
-
-  } else if (brujula == 3) {
-    cold = abs(col - cold);
-
-    if ((x == 9 || x == 10 || x == 11 || x == 4 || x == 5 || x == 1))
-      fild = abs(fil + fild);
-    else
-      fild = abs(fil - fild);
-  }
-
-  final.c = cold;
-  final.f = fild;
-  // cout << fil << " " << col << endl;
-  // cout << "A devolver: " << final.f << " " << final.c << endl;
-
-  return final;
-}
-
-/**
- * @brief Movimiento Dirigido
- *
- * @param sensores
- * @param origenf
- * @param origenc
- * @param destinof
- * @param destinoc
- * @return Action
- */
-
-Action ComportamientoJugador::Mover_Dirigido(Sensores sensores, int origenf,
-                                             int origenc, int destinof,
-                                             int destinoc) {
-  Action accion = actIDLE;
-  cout << "Mover dirigido " << endl;
-
-  if (inicializamos) {
-    filas_mover = abs(origenf - destinof);
-    columnas_mover = abs(origenc - destinoc);
-    inicializamos = false; // solo quiero una vez
-  }
-
-  cout << filas_mover << " " << columnas_mover << endl;
-
-  // pongo la brujula donde quiero
-  // si cambio pos brujula -> giro
-  // si no pa lante
-  // movimiento filas
-  // arriba o abajo
-
-  if (filas_mover == 0)
-    hago_columnas = true;
-
-  if (hago_filas && filas_mover != 0) {
-
-    if ((origenf - destinof) > 0) {
-      // arriba
-
-      if (brujula != 0) {
-
-        accion = actTURN_L;
-      } else {
-
-        filas_mover--;
-        accion = actFORWARD;
-      }
-
-    } else if ((origenf - destinof) < 0) {
-      // abajo
-      if (brujula != 2)
-        accion = actTURN_L;
-      else {
-
-        filas_mover--;
-        accion = actFORWARD;
-      }
-    }
-  }
-
-  // izquierda, derecha
-  // mover columnas
-
-  if (hago_columnas && columnas_mover != 0) {
-
-    if ((origenc - destinoc) > 0) {
-      // arriba
-
-      if (brujula != 3) { // OESTE ES cuando
-        accion = actTURN_R;
-      } else {
-
-        accion = actFORWARD;
-        columnas_mover--;
-      }
-
-    } else if ((origenc - destinoc) < 0) {
-      // abajo
-      if (brujula != 1) // oeste
-        accion = actTURN_R;
-      else {
-
-        accion = actFORWARD;
-        columnas_mover--;
-      }
-    }
-  }
-
-  // cout << filas_mover << " " << columnas_mover << endl;
-
-  if (!hago_filas && !hago_columnas)
-    TT = true;
-  //  movimiento columnas
-
-  return accion;
-}
 
 void ComportamientoJugador::ActualizarMapa(Sensores sensores) {
 
