@@ -10,23 +10,28 @@ class ComportamientoJugador : public Comportamiento{
     ComportamientoJugador(unsigned int size) : Comportamiento(size){
       // Constructor de la clase
       // Dar el valor inicial a las variables de estado
-      
       fil=col=99;
+      //brujula=0;
       ultimaAccion= actIDLE;
       girar_derecha=false;
       bien_situado=false;
       bikini = zapatillas = recarga = false;
-      tiempo_recarga = 5;
-      tiempo_giro = 15;
-     
-      nivel = -1;
-      modo_busqueda = false;
+      tiempo_recarga = 15;
+      
+      
       modo_aleatorio = true;
+      modo_busqueda = false;
+      comienzo = false;
       
-      arriba = 0;
-      lados = 0;
-      
+      encontrada_posicion= encontrada_zapas = encontrada_bikini =encontrada_recarga = false;
+      posicionamiento = 0;
 
+      terminamos = false;
+      inicializamos = true;
+
+      bien_busqueda = true;
+
+      contador = 50;
       }
 
     ComportamientoJugador(const ComportamientoJugador & comport) : Comportamiento(comport){}
@@ -38,57 +43,36 @@ class ComportamientoJugador : public Comportamiento{
   private:
   
   // Variables de estado
-  int fil,col,brujula, nivel, tiempo_recarga, tiempo_giro, pasos;  // fila, columna , brujula, nivel , tiempo_recarga, pasos
+  int fil,col,brujula,  tiempo_recarga, pasos;  // fila, columna , brujula, nivel , tiempo_recarga, pasos
   Action ultimaAccion; // ulltima accion
   bool girar_derecha, bien_situado, bikini, zapatillas, recarga; // bien_situado deberia cambiarlo
- 
-  bool modo_busqueda; // modos del robot - busqueda si hay una casilla cerca
-  bool modo_aleatorio; // modo del robot - aleatorio, modo general si encuantra pared gira
-  
-  
+  bool modo_aleatorio, modo_busqueda;
+  bool comienzo;
 
-  // Busqueda de la casilla
-  
-  int arriba,lados;
-  int x = 0;
-  bool inicializamos = true;
-  bool destino_visto = false;
-  bool bien_situado2 = false;
-  bool inicializamos2 = true;
-  bool terminado5 = false;
-  bool bien_situado3 = false;
- 
-  bool primera_vez = true;
+  bool encontrada_posicion, encontrada_zapas, encontrada_bikini, encontrada_recarga;
 
+  bool inicializamos, terminamos;
 
-  bool casilla_azul_encontrada = false;
-  bool bikini_encontrado = false;
-  bool zapatillas_encontradas = false;
-  bool cargador_encontrado = false;
-  
-  
+  int filax,columnasx;
 
-  
-  // necesito variable para que gire aleatoriamente, cuando llegue a 0
+  int posicionamiento;
 
-  // funciones privadas 
+  bool bien_busqueda;
+
+  int contador;
+
+  // funciones
   void ActualizarMapa(Sensores sensores);
-  bool Avanzar(Sensores sensores);
-  Action Girar(Sensores sensores);
+  void SensorVistaNivel(Sensores sensores);
+  void VistaAgente(Sensores sensores);
+  Action MoverAleatorio(Sensores sensores);
   void Recargar();
-  void CasillaEspecial(Sensores sensores);
+  bool SensoresAvanzar(Sensores sensores);
+  Action Girar(Sensores sensores);
+  void SensorCasilla(Sensores sensores);
+  Action MoverBusqueda(int x);
   void reiniciar();
-  char Mapa(Sensores sensores);
-
   
-  Action Mover_Aleatorio(Sensores sensores);
-  Action Mover_Dirigido_v2(int x);
-  Action Comportamiento_nivel0(Sensores sensores, Action accion);
-  Action Comportamiento_nivel1_2(Sensores sensores, Action accion);
-
-  Action Prueba(Sensores sensores, Action accion);
-
-
 };
 
 #endif
