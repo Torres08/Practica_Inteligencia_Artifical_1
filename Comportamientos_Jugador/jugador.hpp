@@ -16,7 +16,7 @@ class ComportamientoJugador : public Comportamiento{
       girar_derecha=false;
       bien_situado=false;
       bikini = zapatillas = recarga = false;
-      tiempo_recarga = 25;
+      tiempo_recarga = 100;
       
       
       modo_aleatorio = true;

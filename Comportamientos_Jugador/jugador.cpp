@@ -130,8 +130,8 @@ Action ComportamientoJugador::think(Sensores sensores) {
   }
 
   // Recordar la ultima accion
-
-  if( (accion == actIDLE && ultimaAccion == actIDLE) || (accion == actTURN_R && ultimaAccion == actTURN_R) || (accion == actTURN_L && ultimaAccion == actTURN_L) && !recarga)
+  
+  if( ((accion == actIDLE && ultimaAccion == actIDLE) || (accion == actTURN_R && ultimaAccion == actTURN_R) || (accion == actTURN_L && ultimaAccion == actTURN_L)) && !recarga)
     contador--;
 
   comienzo = true;
@@ -271,7 +271,7 @@ void ComportamientoJugador::Recargar(Sensores sensores) {
   tiempo_recarga--;
   if (tiempo_recarga == 0) {
     recarga = false;
-    tiempo_recarga = 35;
+    tiempo_recarga = 100;
   }
 }
 
@@ -309,14 +309,16 @@ Action ComportamientoJugador::Girar(Sensores sensores) {
 }
 
 void ComportamientoJugador::SensorCasilla(Sensores sensores) {
-
-  if (sensores.terreno[0] == 'K' || sensores.terreno[0] == 'D' ||
+  
+  if (sensores.terreno[0] == 'K'  || sensores.terreno[0] == 'D' ||
       sensores.terreno[0] == 'X' || sensores.terreno[0] == 'G') {
     modo_busqueda = false;
     modo_aleatorio = true;
     inicializamos = true;
   }
+  
 
+ 
   if (sensores.terreno[2] == 'K') {
     bikini = true;
   }
@@ -331,7 +333,7 @@ void ComportamientoJugador::SensorCasilla(Sensores sensores) {
 }
 
 void ComportamientoJugador::VistaAgente(Sensores sensores) {
-  cout << encontrada_posicion<< encontrada_zapas << encontrada_bikini << encontrada_recarga << endl;
+  //cout << encontrada_posicion<< encontrada_zapas << encontrada_bikini << encontrada_recarga << endl;
   
   if (!encontrada_posicion) { // posicion
     for (int i = 0; i < 15; i++)
@@ -412,12 +414,12 @@ Action ComportamientoJugador::MoverBusqueda(int x) {
     accion = actFORWARD; 
     filax--;
   } else if (filax == 0 && !terminamos){
-      cout <<  "Hola" << terminamos << endl; 
+     // cout <<  "Hola" << terminamos << endl; 
     if ((x == 9 || x == 10 || x == 11 || x == 4 || x == 5 || x == 1)){
-        cout << "adios" << endl;
+       // cout << "adios" << endl;
         accion = actTURN_L;
     } else if ((x == 13|| x == 14 || x == 15 || x == 7 || x == 8 || x == 3)){
-        cout << "121212" << endl;
+        //cout << "121212" << endl;
         accion = actTURN_R;
     }
     terminamos = true;
