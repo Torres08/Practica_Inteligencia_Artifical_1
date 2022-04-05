@@ -131,7 +131,7 @@ Action ComportamientoJugador::think(Sensores sensores) {
 
   // Recordar la ultima accion
 
-  if( (accion == actIDLE && ultimaAccion == actIDLE) || (accion == actTURN_R && ultimaAccion == actTURN_R) || (accion == actTURN_L && ultimaAccion == actTURN_L) )
+  if( (accion == actIDLE && ultimaAccion == actIDLE) || (accion == actTURN_R && ultimaAccion == actTURN_R) || (accion == actTURN_L && ultimaAccion == actTURN_L) && !recarga)
     contador--;
 
   comienzo = true;
@@ -271,7 +271,7 @@ void ComportamientoJugador::Recargar(Sensores sensores) {
   tiempo_recarga--;
   if (tiempo_recarga == 0) {
     recarga = false;
-    tiempo_recarga = 25;
+    tiempo_recarga = 35;
   }
 }
 
