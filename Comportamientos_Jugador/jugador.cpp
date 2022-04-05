@@ -51,6 +51,8 @@ Action ComportamientoJugador::think(Sensores sensores) {
   cout << "Recarga: " << recarga << endl;
   cout << "Tiempo Recarga: " << tiempo_recarga << endl;
   cout << "Contador: " << contador << endl;
+  cout << "Pasos giro: " << pasos_giro << endl;
+  cout << "Casilla recarga: " << encontrada_recarga << endl;
 
   // Metodo think
   switch (ultimaAccion) {
@@ -120,6 +122,12 @@ Action ComportamientoJugador::think(Sensores sensores) {
   }
   // reconoce la casilla G la azul deja un rastro de lo visto
   // cono de visualización
+
+  if (sensores.bateria <= bateria_baja ){
+    decrementar();
+  } else {
+    pasos_giro = 10;
+  }
 
   // Recordar la ultima accion
 
@@ -244,21 +252,26 @@ Action ComportamientoJugador::MoverAleatorio(Sensores sensores) {
 
   if (recarga) {
     accion = actIDLE;
-    Recargar();
-  } else if (SensoresAvanzar(sensores)) {
+    Recargar(sensores);
+  } else if (SensoresAvanzar(sensores) && pasos_giro != 0) {
     accion = actFORWARD;
+    if (!recarga)
+      encontrada_recarga = false;
+  
   } else {
     accion = Girar(sensores);
+    if (pasos_giro <= 0)
+      pasos_giro = 10;
   }
 
   return accion;
 }
 
-void ComportamientoJugador::Recargar() {
+void ComportamientoJugador::Recargar(Sensores sensores) {
   tiempo_recarga--;
   if (tiempo_recarga == 0) {
     recarga = false;
-    tiempo_recarga = 5;
+    tiempo_recarga = 25;
   }
 }
 
@@ -399,7 +412,7 @@ Action ComportamientoJugador::MoverBusqueda(int x) {
     accion = actFORWARD; 
     filax--;
   } else if (filax == 0 && !terminamos){
-    
+      cout <<  "Hola" << terminamos << endl; 
     if ((x == 9 || x == 10 || x == 11 || x == 4 || x == 5 || x == 1)){
         cout << "adios" << endl;
         accion = actTURN_L;
@@ -435,4 +448,9 @@ void ComportamientoJugador::reiniciar (){
 
   terminamos = false;
   inicializamos = true;
+}
+
+void ComportamientoJugador::decrementar(){
+  if (ultimaAccion == actFORWARD)
+    pasos_giro--;
 }

@@ -16,7 +16,7 @@ class ComportamientoJugador : public Comportamiento{
       girar_derecha=false;
       bien_situado=false;
       bikini = zapatillas = recarga = false;
-      tiempo_recarga = 15;
+      tiempo_recarga = 25;
       
       
       modo_aleatorio = true;
@@ -32,6 +32,9 @@ class ComportamientoJugador : public Comportamiento{
       bien_busqueda = true;
 
       contador = 50;
+
+      pasos_giro = 10;
+      bateria_baja = 2500;
       }
 
     ComportamientoJugador(const ComportamientoJugador & comport) : Comportamiento(comport){}
@@ -61,17 +64,20 @@ class ComportamientoJugador : public Comportamiento{
 
   int contador;
 
+  int pasos_giro, bateria_baja;
+
   // funciones
   void ActualizarMapa(Sensores sensores);
   void SensorVistaNivel(Sensores sensores);
   void VistaAgente(Sensores sensores);
   Action MoverAleatorio(Sensores sensores);
-  void Recargar();
+  void Recargar(Sensores sensores);
   bool SensoresAvanzar(Sensores sensores);
   Action Girar(Sensores sensores);
   void SensorCasilla(Sensores sensores);
   Action MoverBusqueda(int x);
   void reiniciar();
+  void decrementar();
   
 };
 
