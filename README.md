@@ -1,6 +1,6 @@
 ## Practica Inteligencia Artificial 1
 
-## Procedimiento para el Movimiento del Agente Reactivo
+## Agentes Reactivos: Los Extraños mundos de Belkan 
 
 En este redme, se describe el procedimiento seguido para definir el movimiento del agente reactivo, junto con una explicación detallada de las variables más importantes y las funciones requeridas.
 
