@@ -30,7 +30,7 @@ Para definir el movimiento del agente, se sigue el siguiente procedimiento:
 - `MoverAleatorio:` Define el movimiento aleatorio del agente, incluyendo la gestión de recarga, la evaluación de los sensores y el giro.
 - `Mover_Busqueda:` Implementa el movimiento del agente hacia una casilla especial cuando está en modo de búsqueda.
 
-3. Resumen
+### 3. Resumen
 
 Belkan, el agente, comienza moviéndose aleatoriamente y busca las casillas especiales. Si encuentra una, cambia al modo de búsqueda y se dirige hacia ella. Una vez completada la búsqueda, vuelve al modo aleatorio. Si un lobo lo come, se reinician sus variables y se coloca en una nueva posición. Cuando la batería está baja, Belkan gira con mayor frecuencia. Además, se habilitan las habilidades de bikini y zapatillas si Belkan queda atascado sin hacer nada.
 
